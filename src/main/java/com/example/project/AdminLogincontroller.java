@@ -112,7 +112,9 @@ public class AdminLogincontroller {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminDashboard.fxml"));
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 600, 400);
+            Scene scene = new Scene(root, 1100, 600);
+            String css = this.getClass().getResource("adminDashboardDesign.css").toExternalForm();
+            scene.getStylesheets().add(css);
             Stage currentStage = (Stage)admininlogin_bt.getScene().getWindow();
             currentStage.setScene(scene);
             currentStage.show();
