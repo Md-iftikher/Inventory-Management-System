@@ -1,0 +1,26 @@
+.left-form{
+    -fx-background-color: linear-gradient(to bottom right, #22bcdd,#3c7797);
+    -fx-border-color:#000;
+    -fx-background-width:.4px 0px .4px .4px;
+}
+.right-form{
+    -fx-background-color:#fff
+    -fx-border-color:#000;
+    -fx-background-width:.4px 0px .4px .4px;
+}
+.close{
+    -fx-background-color: #22bcdd;
+    -fx-cursor:hand;
+}
+.close:hover{
+   -fx-background-color:#69b1bf;
+}
+.login_btn{
+        -fx-background-color: #22bcdd;
+        -fx-cursor:hand;
+}
+.login_btn:hover{
+    -fx-background-color:#69b1bf;
+}
+
+

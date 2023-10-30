@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.AdminLogincontroller">
+   <children>
+      <AnchorPane prefHeight="450.0" prefWidth="600.0">
+         <children>
+            <AnchorPane layoutX="4.0" prefHeight="450.0" prefWidth="300.0" styleClass="left-form" stylesheets="@adminlogin.css">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="266.0" layoutX="50.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@settings.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="306.0" prefHeight="450.0" prefWidth="309.0" styleClass="right-form">
+               <children>
+                  <ImageView fitHeight="58.0" fitWidth="61.0" layoutX="126.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@user%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="89.0" layoutY="129.0" text="Welcome Admin">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="adminusername" layoutX="45.0" layoutY="192.0" onAction="#Loginf" prefHeight="30.0" prefWidth="220.0" promptText="Username" />
+                  <PasswordField fx:id="adminpassword" layoutX="45.0" layoutY="236.0" onAction="#Loginf" prefHeight="30.0" prefWidth="220.0" promptText="Password" />
+                  <Button fx:id="admininlogin_bt" layoutX="45.0" layoutY="294.0" mnemonicParsing="false" onAction="#Loginf" prefHeight="35.0" prefWidth="220.0" styleClass="login_btn" stylesheets="@adminlogin.css" text="Login" textFill="#ebebeb">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="close" layoutX="45.0" layoutY="342.0" mnemonicParsing="false" onAction="#close_back_to_login" prefHeight="35.0" prefWidth="220.0" styleClass="close" stylesheets="@adminlogin.css" text="Back" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="loginMassagelebel" alignment="CENTER" layoutX="26.0" layoutY="271.0" prefHeight="18.0" prefWidth="259.0" textFill="RED">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <stylesheets>
+                  <URL value="@adminlogin.css" />
+                  <URL value="@adminlogin.css" />
+               </stylesheets>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

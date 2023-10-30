@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -16,24 +17,25 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class loginController {
+public class AdminLogincontroller {
+    @FXML
+    private Button admininlogin_bt;
 
     @FXML
-    private Button loginButton,adminlogin;
-    @FXML
-    private Label loginMassagelebel; //Invalid Login. Please Try again.
-    @FXML
-    private TextField usernameTextfield;
-    @FXML
-    private TextField enterPasswordField;
-    @FXML
-    private Button Registrationclick;
+    private PasswordField adminpassword;
 
-    private String userFile = "user_info.txt";
+    @FXML
+    private TextField adminusername;
+
+    @FXML
+    private Button close;
+    @FXML
+    private Label loginMassagelebel;
+    private String userFile = "admininfo.txt";
     @FXML
     public void Loginf(ActionEvent event){
         try {
-            if (usernameTextfield.getText().isBlank() == false && enterPasswordField.getText().isBlank() == false) {
+            if (adminusername.getText().isBlank() == false && adminpassword.getText().isBlank() == false) {
                 logincheck();
             } else {
                 loginMassagelebel.setText("Please Enter Username and Password");
@@ -44,8 +46,8 @@ public class loginController {
         }
     }
     public void logincheck() {
-        String enteredUsername = usernameTextfield.getText();
-        String enteredPassword = enterPasswordField.getText();
+        String enteredUsername = adminusername.getText();
+        String enteredPassword = adminpassword.getText();
         boolean loginSuccessful = false;
         BufferedReader br = null;
 
@@ -54,7 +56,7 @@ public class loginController {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] userData = line.split(",");
-                if (userData.length == 4) {
+                if (userData.length == 2) {
                     String username = userData[0];
                     String password = userData[1];
 //                    String firstname = userData[2];
@@ -81,43 +83,43 @@ public class loginController {
 
         if (loginSuccessful) {
             loginMassagelebel.setText("Login successful!");
+            openadminDashboard();
+
         } else {
             loginMassagelebel.setText("Invalid Login. Please Try again.");
         }
     }
 
 
+
+
+
     @FXML
-    public void handleRegistrationClick(ActionEvent event) {
+    public void close_back_to_login(ActionEvent event){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registration.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 600, 524);
+            Scene scene = new Scene(root, 600, 400);
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.setScene(scene);
             currentStage.show();
         } catch (Exception e) {
             System.out.println(e);
-            e.getCause();
-        }
-    }
-    @FXML
-    public void Adminlogin(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminLogin.fxml"));
-            Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 600, 450);
-            String css = this.getClass().getResource("adminlogin.css").toExternalForm();
-            scene.getStylesheets().add(css);
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.setScene(scene);
-            currentStage.show();
-        } catch (Exception e) {
-            System.out.println(e);
-            e.getCause();
         }
     }
 
+    public void openadminDashboard(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminDashboard.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root, 600, 400);
+            Stage currentStage = (Stage)admininlogin_bt.getScene().getWindow();
+            currentStage.setScene(scene);
+            currentStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
 
 
