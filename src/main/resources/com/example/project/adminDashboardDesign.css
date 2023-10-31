@@ -13,10 +13,31 @@
 
 }
 .nav_btn{
-        -fx-background-color: transparent;
+        -fx-background-color:transparent;
         -fx-cursor:hand;
         -fx-font-family:"Arial";
         -fx-font-size:15px;
         -fx-text-fill:#fff;
-        -fx-allignment:CENTER-LEFT;
+        -fx-alignment:CENTER-LEFT;
+}
+.nav_btn:hover{
+   -fx-background-color:#4eae9a;
+}
+.logout_btn{
+        -fx-background-color:linear-gradient(to bottom right, #22bcdd,#3c7797);
+        -fx-cursor:hand;
+}
+.logout_btn:hover{
+   -fx-background-color:#4eae9a;
+}
+.shadow{
+    -fx-effect:dropshadow(three-pass-box,rgba(0,0,0,0.4),5,0,0,0);
+}
+.white_Bg{
+   -fx-background-color:#fff;
+   -fx-background-radius:8px;
+}
+.card-d{
+    -fx-background-color: linear-gradient(to right, #22bcdd,#296c90);
+     -fx-background-radius:8px;
 }
