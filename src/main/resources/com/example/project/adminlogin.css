@@ -1,13 +1,15 @@
-.left-form{
-    -fx-background-color: linear-gradient(to bottom right, #22bcdd,#3c7797);
-    -fx-border-color:#000;
-    -fx-background-width:.4px 0px .4px .4px;
+.left-form {
+    -fx-background-color: linear-gradient(to bottom right, #22bcdd, #3c7797);
+    -fx-border-color: #000;
+    -fx-background-width: 0.4px 0px 0.4px 0.4px;
 }
-.right-form{
-    -fx-background-color:#fff
-    -fx-border-color:#000;
-    -fx-background-width:.4px 0px .4px .4px;
+
+.right-form {
+    -fx-background-color: #fff;
+    -fx-border-color: #000;
+    -fx-background-width: 0.4px 0px 0.4px 0.4px;
 }
+
 .close{
     -fx-background-color: #22bcdd;
     -fx-cursor:hand;

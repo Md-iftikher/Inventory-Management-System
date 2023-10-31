@@ -9,8 +9,7 @@
     -fx-background-width:.2px .4px .4px .4px;
 }
 .nav-form{
-    -fx-background-color: linear-gradient(to bottom right, #22bcdd,#3c7797);
-
+    -fx-background-color: linear-gradient(to bottom right, #22bcdd, #3c7797);
 }
 .nav_btn{
         -fx-background-color:transparent;
@@ -24,7 +23,7 @@
    -fx-background-color:#4eae9a;
 }
 .logout_btn{
-        -fx-background-color:linear-gradient(to bottom right, #22bcdd,#3c7797);
+        -fx-background-color:linear-gradient(to bottom right, #22bcdd, #3c7797);
         -fx-cursor:hand;
 }
 .logout_btn:hover{
@@ -38,6 +37,79 @@
    -fx-background-radius:8px;
 }
 .card-d{
-    -fx-background-color: linear-gradient(to right, #22bcdd,#296c90);
+    -fx-background-color: linear-gradient(to right, #22bcdd, #296c90);
      -fx-background-radius:8px;
 }
+.textfield{
+        -fx-background-color:linear-gradient(to bottom, #efefef, #eee);
+        -fx-background-radius:4px;
+        -fx-border-color:linear-gradient(to bottom right, #22bcdd, #296c90);
+        -fx-border-radius:4px;
+        -fx-border-width:1px;
+}
+.textfield:focused{
+     -fx-background-color:#fff;
+     -fx-border-width:2px;
+}
+.add_button{
+     -fx-background-color:#243e6b;
+     -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size:14px;
+     -fx-cursor:hand;
+     -fx-font-family:"Arial";
+}
+.add_button:hover{
+   -fx-background-color:#4969al;
+}
+.update_button{
+     -fx-background-color:#0646b5;
+     -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size:14px;
+     -fx-cursor:hand;
+     -fx-font-family:"Arial";
+}
+.update_button:hover{
+   -fx-background-color:#4969al;
+}
+.delete_button{
+     -fx-background-color:#da1a1a;
+     -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size:14px;
+     -fx-cursor:hand;
+     -fx-font-family:"Arial";
+}
+.delete_button:hover{
+   -fx-background-color:#4969al;
+}
+.reset_button{
+     -fx-background-color:#448a3f;
+     -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size:14px;
+     -fx-cursor:hand;
+     -fx-font-family:"Arial";
+}
+.reset_button:hover{
+   -fx-background-color:#4969al;
+}
+.table_view{
+    -fx-background-color:transparent;
+    -fx-padding:0px;
+    -fx-border-color:linear-gradient(to bottom right, #22bcdd, #296c90);
+    -fx-border-radius:8px;
+    -fx-border-width:2px;
+}
+.table_view.column-header-background{
+    -fx-background-color:linear-gradient(to bottom right, #22bcdd, #296c90);
+    -fx-background-radius:8px,8px,0px,0px;
+}
+.table_view.column-header, .filter{
+    -fx-background-color:transparent;
+    -fx-size:40px;
+}
+
+
+

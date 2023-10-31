@@ -19,336 +19,346 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.AdminDashboardController">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
-         <top>
-            <AnchorPane prefHeight="45.0" prefWidth="1100.0" styleClass="semi-top-form" stylesheets="@adminDashboardDesign.css" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane prefHeight="39.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@adminDashboardDesign.css" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="Admin_main_form" prefHeight="600.0" prefWidth="1100.0">
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="1100.0" styleClass="semi-top-form" stylesheets="@adminDashboardDesign.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Label layoutX="58.0" layoutY="11.0" text="Vinyl &amp; CD shop">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="16.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@cdicon.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </top>
-         <left>
-            <AnchorPane prefHeight="555.0" prefWidth="207.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane layoutX="-1.0" prefHeight="555.0" prefWidth="207.0" styleClass="nav-form" stylesheets="@adminDashboardDesign.css">
-                     <children>
-                        <ImageView fitHeight="79.0" fitWidth="67.0" layoutX="69.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Admin_user.png" />
-                           </image>
-                           <effect>
-                              <ColorAdjust />
-                           </effect>
-                        </ImageView>
-                        <Label layoutX="68.0" layoutY="123.0" text="Welcome" textFill="WHITE">
-                           <font>
-                              <Font name="Arial Bold" size="17.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="3.0" layoutY="149.0" prefHeight="23.0" prefWidth="202.0" text="Admin" textFill="#fcfcfc">
-                           <font>
-                              <Font name="Arial Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Line endX="68.0" layoutX="120.0" layoutY="183.0" startX="-100.0" stroke="WHITE" />
-                        <Button layoutX="16.0" layoutY="205.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Home" textFill="WHITE">
-                           <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@home-button.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic></Button>
-                        <Button layoutX="16.0" layoutY="246.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Add Product" textFill="WHITE">
-                           <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@add%20(1).png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="16.0" layoutY="286.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Order" textFill="WHITE">
-                           <graphic>
-                              <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@3d-cube%20(1).png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button layoutX="23.0" layoutY="512.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="36.0" styleClass="logout_btn" stylesheets="@adminDashboardDesign.css">
-                           <graphic>
-                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@logout.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Label layoutX="81.0" layoutY="524.0" text="Logout" textFill="WHITE">
-                           <font>
-                              <Font name="Arial Bold" size="15.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </left>
-         <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane prefHeight="555.0" prefWidth="893.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane layoutX="10.0" layoutY="7.0" prefHeight="146.0" prefWidth="874.0" stylesheets="@adminDashboardDesign.css">
-                           <styleClass>
-                              <String fx:value="white_Bg" />
-                              <String fx:value="shadow" />
-                           </styleClass>
+                        <AnchorPane prefHeight="39.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@adminDashboardDesign.css" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="14.0" layoutY="9.0" prefHeight="128.0" prefWidth="265.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
-                                 <children>
-                                    <ImageView fitHeight="83.0" fitWidth="76.0" layoutX="11.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@users.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label layoutX="97.0" layoutY="97.0" text="Total Order" textFill="WHITE">
-                                       <font>
-                                          <Font name="Arial Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="BOTTOM_RIGHT" layoutX="179.0" layoutY="6.0" prefHeight="17.0" prefWidth="78.0" text="0" textFill="WHITE">
-                                       <font>
-                                          <Font name="Arial Bold Italic" size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane layoutX="301.0" layoutY="9.0" prefHeight="128.0" prefWidth="265.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
-                                 <children>
-                                    <ImageView fitHeight="69.0" fitWidth="76.0" layoutX="11.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@money.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label layoutX="97.0" layoutY="102.0" text="Total Income" textFill="WHITE">
-                                       <font>
-                                          <Font name="Arial Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="BOTTOM_RIGHT" layoutX="179.0" layoutY="11.0" prefHeight="17.0" prefWidth="78.0" text="\$0.00" textFill="WHITE">
-                                       <font>
-                                          <Font name="Arial Bold Italic" size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane layoutX="587.0" layoutY="9.0" prefHeight="128.0" prefWidth="265.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
-                                 <children>
-                                    <ImageView fitHeight="69.0" fitWidth="76.0" layoutX="5.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@3d-cubeProduct.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label layoutX="91.0" layoutY="102.0" text="Avaible Product" textFill="WHITE">
-                                       <font>
-                                          <Font name="Arial Bold" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label alignment="BOTTOM_RIGHT" layoutX="173.0" layoutY="11.0" prefHeight="17.0" prefWidth="78.0" text="0" textFill="WHITE">
-                                       <font>
-                                          <Font name="Arial Bold Italic" size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
+                              <Label layoutX="58.0" layoutY="11.0" text="Vinyl &amp; CD shop">
+                                 <font>
+                                    <Font name="Arial Black" size="13.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="16.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@cdicon.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="10.0" layoutY="172.0" prefHeight="379.0" prefWidth="874.0" stylesheets="@adminDashboardDesign.css">
-                           <styleClass>
-                              <String fx:value="white_Bg" />
-                              <String fx:value="shadow" />
-                           </styleClass>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="555.0" prefWidth="207.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="-1.0" prefHeight="555.0" prefWidth="207.0" styleClass="nav-form" stylesheets="@adminDashboardDesign.css">
                            <children>
-                              <AnchorPane layoutX="14.0" layoutY="19.0" prefHeight="346.0" prefWidth="484.0" stylesheets="@adminDashboardDesign.css">
+                              <ImageView fitHeight="79.0" fitWidth="67.0" layoutX="69.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Admin_user.png" />
+                                 </image>
+                                 <effect>
+                                    <ColorAdjust />
+                                 </effect>
+                              </ImageView>
+                              <Label layoutX="68.0" layoutY="123.0" text="Welcome" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="adminUserName" alignment="CENTER" layoutX="3.0" layoutY="149.0" prefHeight="23.0" prefWidth="202.0" text="Admin" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="68.0" layoutX="120.0" layoutY="183.0" startX="-100.0" stroke="WHITE" />
+                              <Button fx:id="adminDashHome_button" layoutX="16.0" layoutY="205.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Home" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@home-button.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="admin_addproduct_Button" layoutX="16.0" layoutY="246.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Add Product" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="Admin_dash_Order_back_user_Sceren_for_order" layoutX="16.0" layoutY="286.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Order" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@3d_cube.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="Admin_logoutButton" layoutX="23.0" layoutY="512.0" mnemonicParsing="false" onAction="#logout_From_dashboard_TO_admin_login" prefHeight="34.0" prefWidth="36.0" styleClass="logout_btn" stylesheets="@adminDashboardDesign.css">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@logout.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Label layoutX="81.0" layoutY="524.0" text="Sign Out" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="home_form" prefHeight="555.0" prefWidth="893.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="10.0" layoutY="7.0" prefHeight="146.0" prefWidth="874.0" stylesheets="@adminDashboardDesign.css">
                                  <styleClass>
                                     <String fx:value="white_Bg" />
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <BarChart layoutX="-8.0" layoutY="-54.0" prefHeight="346.0" prefWidth="492.0" title="Income Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <xAxis>
-                                        <CategoryAxis side="BOTTOM" />
-                                      </xAxis>
-                                      <yAxis>
-                                        <NumberAxis side="LEFT" />
-                                      </yAxis>
-                                    </BarChart>
+                                    <AnchorPane layoutX="14.0" layoutY="9.0" prefHeight="128.0" prefWidth="265.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
+                                       <children>
+                                          <ImageView fitHeight="83.0" fitWidth="76.0" layoutX="11.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@users.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="97.0" layoutY="97.0" text="Total Order" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="home_number_order" alignment="BOTTOM_RIGHT" layoutX="179.0" layoutY="6.0" prefHeight="17.0" prefWidth="78.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="301.0" layoutY="9.0" prefHeight="128.0" prefWidth="265.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
+                                       <children>
+                                          <ImageView fitHeight="69.0" fitWidth="76.0" layoutX="11.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@money.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="97.0" layoutY="102.0" text="Total Income" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="home_total_income" alignment="BOTTOM_RIGHT" layoutX="179.0" layoutY="11.0" prefHeight="17.0" prefWidth="78.0" text="\$0.00" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="587.0" layoutY="9.0" prefHeight="128.0" prefWidth="265.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
+                                       <children>
+                                          <ImageView fitHeight="69.0" fitWidth="76.0" layoutX="5.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@3d-cubeProduct.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="91.0" layoutY="102.0" text="Avaible Product" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="home_avaibleProducts" alignment="BOTTOM_RIGHT" layoutX="173.0" layoutY="11.0" prefHeight="17.0" prefWidth="78.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane layoutX="516.0" layoutY="18.0" prefHeight="346.0" prefWidth="344.0" stylesheets="@adminDashboardDesign.css">
+                              <AnchorPane layoutX="10.0" layoutY="172.0" prefHeight="379.0" prefWidth="874.0" stylesheets="@adminDashboardDesign.css">
                                  <styleClass>
                                     <String fx:value="white_Bg" />
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <BarChart layoutX="-106.0" layoutY="-37.0" prefHeight="363.0" prefWidth="394.0" title="Order Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <xAxis>
-                                        <CategoryAxis side="BOTTOM" />
-                                      </xAxis>
-                                      <yAxis>
-                                        <NumberAxis side="LEFT" />
-                                      </yAxis>
-                                    </BarChart>
+                                    <AnchorPane layoutX="14.0" layoutY="19.0" prefHeight="346.0" prefWidth="484.0" stylesheets="@adminDashboardDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white_Bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <BarChart fx:id="home_income_chart" layoutX="-8.0" layoutY="-54.0" prefHeight="346.0" prefWidth="492.0" title="Income Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="516.0" layoutY="18.0" prefHeight="346.0" prefWidth="344.0" stylesheets="@adminDashboardDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white_Bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <BarChart fx:id="home_order_chart" layoutX="-106.0" layoutY="-37.0" prefHeight="363.0" prefWidth="394.0" title="Order Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
                                  </children>
+                              </AnchorPane>
+                              <Line endX="705.0" layoutX="178.0" layoutY="162.0" startX="-163.0" stroke="#4ebbcf" strokeWidth="2.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="addProduct_Form" layoutX="175.0" layoutY="161.0" prefHeight="555.0" prefWidth="893.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="530.0" prefWidth="320.0" stylesheets="@adminDashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white_Bg" />
+                                 </styleClass>
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="46.0" prefWidth="324.0" stylesheets="@adminDashboardDesign.css" text="Add New Product" textFill="WHITE">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="nav-form" />
+                                       </styleClass>
+                                       <font>
+                                          <Font name="Tahoma Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="21.0" layoutY="151.0" text="Product Name:">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addProduct_name" layoutX="132.0" layoutY="148.0" prefHeight="12.0" prefWidth="179.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <Label alignment="TOP_RIGHT" layoutX="19.0" layoutY="72.0" prefHeight="16.0" prefWidth="103.0" text="Product ID:">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addProductId" layoutX="132.0" layoutY="69.0" prefHeight="12.0" prefWidth="179.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <Label alignment="TOP_RIGHT" layoutX="21.0" layoutY="109.0" prefHeight="16.0" prefWidth="103.0" text="Product Type:">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="addProduct_tyoe" layoutX="132.0" layoutY="106.0" prefHeight="25.0" prefWidth="179.0" promptText="Choose" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="23.0" layoutY="189.0" prefHeight="18.0" prefWidth="102.0" text="Genre:">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addProduct_genre" layoutX="132.0" layoutY="185.0" prefHeight="12.0" prefWidth="179.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <Label fx:id="addProduct_Change_label_with_type" alignment="CENTER_RIGHT" layoutX="24.0" layoutY="228.0" prefHeight="18.0" prefWidth="102.0" text="Devloper">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addProduct_change_texbox" layoutX="133.0" layoutY="224.0" prefHeight="12.0" prefWidth="179.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="8.0" layoutY="266.0" prefHeight="18.0" prefWidth="119.0" text="Year Of Publish">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addProduct_Year_of_publish" layoutX="134.0" layoutY="262.0" prefHeight="12.0" prefWidth="179.0" promptText="Year" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="306.0" prefHeight="18.0" prefWidth="41.0" text="Price:">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addProduct_price" layoutX="73.0" layoutY="303.0" prefHeight="25.0" prefWidth="80.0" promptText="\$0.00" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="154.0" layoutY="306.0" prefHeight="18.0" prefWidth="77.0" text="Discount:">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addProduct_Discount" layoutX="232.0" layoutY="303.0" prefHeight="25.0" prefWidth="79.0" promptText="\%" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="18.0" layoutY="341.0" prefHeight="18.0" prefWidth="182.0" text="Number of Item Stocked:">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addProduct_Stocks" layoutX="200.0" layoutY="338.0" prefHeight="25.0" prefWidth="111.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <Button fx:id="addProduct_Add_button" layoutX="39.0" layoutY="389.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="add_button" stylesheets="@adminDashboardDesign.css" text="Add">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="addProduct_update_button" layoutX="184.0" layoutY="389.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="update_button" stylesheets="@adminDashboardDesign.css" text="Update">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="addProduct_Reset_button" layoutX="39.0" layoutY="455.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="reset_button" stylesheets="@adminDashboardDesign.css" text="Reset">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="addProduct_delete_button" layoutX="185.0" layoutY="455.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="delete_button" stylesheets="@adminDashboardDesign.css" text="Delete">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="359.0" layoutY="13.0" prefHeight="530.0" prefWidth="519.0" stylesheets="@adminDashboardDesign.css">
+                                 <children>
+                                    <Label fx:id="addProduct_table_label_change_with_type" alignment="CENTER" prefHeight="51.0" prefWidth="519.0" stylesheets="@adminDashboardDesign.css" text="Product Type" textFill="WHITE">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="nav-form" />
+                                       </styleClass>
+                                       <font>
+                                          <Font name="Tahoma Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="addProduct_TableView" layoutX="151.0" layoutY="48.0" prefHeight="482.0" prefWidth="438.0" styleClass="table_view" stylesheets="@adminDashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
+                                      <columns>
+                                         <TableColumn fx:id="addProduct_Table_col_id" prefWidth="47.0" text="ID:" />
+                                         <TableColumn fx:id="addProduct_Table_col_Productname" prefWidth="114.0" styleClass="column-header" text="Product Name:" />
+                                         <TableColumn fx:id="addProduct_Table_col_genre" prefWidth="68.0" styleClass="column-header" text="Genre" />
+                                         <TableColumn fx:id="addProduct_Table_col_devloper_artist_director" prefWidth="76.0" styleClass="column-header" text="Devloper" />
+                                         <TableColumn fx:id="addProduct_Table_col_price" prefWidth="56.0" styleClass="column-header" text="Price" />
+                                         <TableColumn fx:id="addProduct_Table_col_discount" prefWidth="76.0" styleClass="column-header" text="Discount" />
+                                         <TableColumn fx:id="addProduct_Table_col_remainingstocks" prefWidth="79.0" styleClass="column-header" text="Stocks" />
+
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white_Bg" />
+                                 </styleClass>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <Line endX="705.0" layoutX="178.0" layoutY="162.0" startX="-163.0" stroke="#4ebbcf" strokeWidth="2.0" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="7.0" layoutY="15.0" prefHeight="530.0" prefWidth="320.0" stylesheets="@adminDashboardDesign.css">
-                     <styleClass>
-                        <String fx:value="shadow" />
-                        <String fx:value="white_Bg" />
-                     </styleClass>
-                     <children>
-                        <Label alignment="CENTER" prefHeight="46.0" prefWidth="324.0" stylesheets="@adminDashboardDesign.css" text="Add New Product" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="shadow" />
-                              <String fx:value="nav-form" />
-                           </styleClass>
-                           <font>
-                              <Font name="Tahoma Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="21.0" layoutY="151.0" text="Product Name:">
-                           <font>
-                              <Font name="Tahoma Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="132.0" layoutY="148.0" prefHeight="12.0" prefWidth="179.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="19.0" layoutY="72.0" prefHeight="16.0" prefWidth="103.0" text="Product ID:">
-                           <font>
-                              <Font name="Tahoma Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="132.0" layoutY="69.0" prefHeight="12.0" prefWidth="179.0" />
-                        <Label alignment="TOP_RIGHT" layoutX="21.0" layoutY="109.0" prefHeight="16.0" prefWidth="103.0" text="Product Type:">
-                           <font>
-                              <Font name="Tahoma Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <ComboBox layoutX="132.0" layoutY="106.0" prefHeight="25.0" prefWidth="179.0" promptText="Choose" />
-                        <Label alignment="CENTER_RIGHT" layoutX="23.0" layoutY="189.0" prefHeight="18.0" prefWidth="102.0" text="Genre:">
-                           <font>
-                              <Font name="Tahoma Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="132.0" layoutY="185.0" prefHeight="12.0" prefWidth="179.0" />
-                        <Label alignment="CENTER_RIGHT" layoutX="24.0" layoutY="228.0" prefHeight="18.0" prefWidth="102.0" text="Devloper">
-                           <font>
-                              <Font name="Tahoma Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="133.0" layoutY="224.0" prefHeight="12.0" prefWidth="179.0" />
-                        <Label alignment="CENTER_RIGHT" layoutX="8.0" layoutY="266.0" prefHeight="18.0" prefWidth="119.0" text="Year Of Publish">
-                           <font>
-                              <Font name="Tahoma Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="134.0" layoutY="262.0" prefHeight="12.0" prefWidth="179.0" promptText="Year" />
-                        <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="306.0" prefHeight="18.0" prefWidth="41.0" text="Price:">
-                           <font>
-                              <Font name="Tahoma Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="73.0" layoutY="303.0" prefHeight="25.0" prefWidth="80.0" promptText="\$0.00" />
-                        <Label alignment="CENTER_RIGHT" layoutX="154.0" layoutY="306.0" prefHeight="18.0" prefWidth="77.0" text="Discount:">
-                           <font>
-                              <Font name="Tahoma Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="232.0" layoutY="303.0" prefHeight="25.0" prefWidth="79.0" promptText="\%" />
-                        <Label alignment="CENTER_RIGHT" layoutX="18.0" layoutY="341.0" prefHeight="18.0" prefWidth="182.0" text="Number of Item Stocked:">
-                           <font>
-                              <Font name="Tahoma Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="200.0" layoutY="338.0" prefHeight="25.0" prefWidth="111.0" />
-                        <Button layoutX="39.0" layoutY="389.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" text="Add">
-                           <font>
-                              <Font name="Tahoma Bold" size="12.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="184.0" layoutY="389.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" text="Update">
-                           <font>
-                              <Font name="Tahoma Bold" size="12.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="39.0" layoutY="455.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" text="Reset">
-                           <font>
-                              <Font name="Tahoma Bold" size="13.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="185.0" layoutY="455.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" text="Delete">
-                           <font>
-                              <Font name="Tahoma Bold" size="12.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="340.0" layoutY="15.0" prefHeight="530.0" prefWidth="519.0" stylesheets="@adminDashboardDesign.css">
-                     <styleClass>
-                        <String fx:value="shadow" />
-                        <String fx:value="white_Bg" />
-                     </styleClass>
-                     <children>
-                        <TableView layoutX="151.0" layoutY="48.0" prefHeight="482.0" prefWidth="519.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
-                          <columns>
-                            <TableColumn prefWidth="47.0" text="ID:" />
-                              <TableColumn prefWidth="114.0" text="Product Name:" />
-                              <TableColumn prefWidth="68.0" text="Genre" />
-                              <TableColumn prefWidth="76.0" text="Devloper" />
-                              <TableColumn prefWidth="56.0" text="Price" />
-                              <TableColumn prefWidth="76.0" text="Discount" />
-                              <TableColumn prefWidth="79.0" text="Stocks" />
-                          </columns>
-                        </TableView>
-                        <Label alignment="CENTER" prefHeight="46.0" prefWidth="519.0" stylesheets="@adminDashboardDesign.css" text="Product Type" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="shadow" />
-                              <String fx:value="nav-form" />
-                           </styleClass>
-                           <font>
-                              <Font name="Tahoma Bold" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </center>
-      </BorderPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
    </children>
 </StackPane>
