@@ -1,0 +1,9 @@
+Name: Red Dead Redemption 2
+Product Id: 14
+Price: 50.0
+Genre: Survival
+Year of Publish: 2018
+Discount: 3.5
+No of Items Stocked: 100
+Developer: RockStar
+

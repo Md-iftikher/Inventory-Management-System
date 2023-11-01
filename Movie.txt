@@ -1,0 +1,9 @@
+Name: Good Will Hunting
+Product Id: 14
+Price: 12.0
+Genre: Drama
+Year of Publish: 1997
+Discount: 2.5
+No of Items Stocked: 100
+Director:  Gus Van Sant
+

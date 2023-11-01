@@ -264,7 +264,7 @@
                                           <Font name="Tahoma Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="addProduct_tyoe" layoutX="132.0" layoutY="106.0" prefHeight="25.0" prefWidth="179.0" promptText="Choose" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+                                    <ComboBox fx:id="addProduct_tyoe" layoutX="132.0" layoutY="106.0" onAction="#intializeproductType" prefHeight="25.0" prefWidth="179.0" promptText="Choose" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
                                     <Label alignment="CENTER_RIGHT" layoutX="23.0" layoutY="189.0" prefHeight="18.0" prefWidth="102.0" text="Genre:">
                                        <font>
                                           <Font name="Tahoma Bold" size="14.0" />
@@ -301,7 +301,7 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="addProduct_Stocks" layoutX="200.0" layoutY="338.0" prefHeight="25.0" prefWidth="111.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
-                                    <Button fx:id="addProduct_Add_button" layoutX="39.0" layoutY="389.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="add_button" stylesheets="@adminDashboardDesign.css" text="Add">
+                                    <Button fx:id="addProduct_Add_button" layoutX="39.0" layoutY="389.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="41.0" prefWidth="105.0" styleClass="add_button" stylesheets="@adminDashboardDesign.css" text="Add">
                                        <font>
                                           <Font name="Tahoma Bold" size="12.0" />
                                        </font>
@@ -311,7 +311,7 @@
                                           <Font name="Tahoma Bold" size="12.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="addProduct_Reset_button" layoutX="39.0" layoutY="455.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="reset_button" stylesheets="@adminDashboardDesign.css" text="Reset">
+                                    <Button fx:id="addProduct_Reset_button" layoutX="39.0" layoutY="455.0" mnemonicParsing="false" onAction="#clearInputFields" prefHeight="41.0" prefWidth="105.0" styleClass="reset_button" stylesheets="@adminDashboardDesign.css" text="Reset">
                                        <font>
                                           <Font name="Tahoma Bold" size="13.0" />
                                        </font>
@@ -325,7 +325,7 @@
                               </AnchorPane>
                               <AnchorPane layoutX="359.0" layoutY="13.0" prefHeight="530.0" prefWidth="519.0" stylesheets="@adminDashboardDesign.css">
                                  <children>
-                                    <Label fx:id="addProduct_table_label_change_with_type" alignment="CENTER" prefHeight="51.0" prefWidth="519.0" stylesheets="@adminDashboardDesign.css" text="Product Type" textFill="WHITE">
+                                    <Label fx:id="addProduct_table_label_change_with_type" alignment="CENTER" prefHeight="51.0" prefWidth="519.0" stylesheets="@adminDashboardDesign.css" text="Added Product" textFill="WHITE">
                                        <styleClass>
                                           <String fx:value="shadow" />
                                           <String fx:value="nav-form" />
@@ -334,15 +334,15 @@
                                           <Font name="Tahoma Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TableView fx:id="addProduct_TableView" layoutX="151.0" layoutY="48.0" prefHeight="482.0" prefWidth="438.0" styleClass="table_view" stylesheets="@adminDashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
+                                    <TableView fx:id="addProduct_TableView" layoutX="151.0" layoutY="48.0" onSort="#addProduct" prefHeight="482.0" prefWidth="438.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
                                       <columns>
                                          <TableColumn fx:id="addProduct_Table_col_id" prefWidth="47.0" text="ID:" />
-                                         <TableColumn fx:id="addProduct_Table_col_Productname" prefWidth="114.0" styleClass="column-header" text="Product Name:" />
-                                         <TableColumn fx:id="addProduct_Table_col_genre" prefWidth="68.0" styleClass="column-header" text="Genre" />
-                                         <TableColumn fx:id="addProduct_Table_col_devloper_artist_director" prefWidth="76.0" styleClass="column-header" text="Devloper" />
-                                         <TableColumn fx:id="addProduct_Table_col_price" prefWidth="56.0" styleClass="column-header" text="Price" />
-                                         <TableColumn fx:id="addProduct_Table_col_discount" prefWidth="76.0" styleClass="column-header" text="Discount" />
-                                         <TableColumn fx:id="addProduct_Table_col_remainingstocks" prefWidth="79.0" styleClass="column-header" text="Stocks" />
+                                         <TableColumn fx:id="addProduct_Table_col_Productname" prefWidth="121.0" styleClass="column-header" text="Product Name:" />
+                                         <TableColumn fx:id="addProduct_Table_col_genre" prefWidth="72.0" styleClass="column-header" text="Genre" />
+                                         <TableColumn fx:id="addProduct_Table_col_devloper_artist_director" prefWidth="93.0" styleClass="column-header" text="Devloper" />
+                                         <TableColumn fx:id="addProduct_Table_col_price" prefWidth="38.0" styleClass="column-header" text="Price" />
+                                         <TableColumn fx:id="addProduct_Table_col_discount" prefWidth="78.0" styleClass="column-header" text="Discount" />
+                                         <TableColumn fx:id="addProduct_Table_col_remainingstocks" prefWidth="67.0" styleClass="column-header" text="Stocks" />
 
                                       </columns>
                                     </TableView>
