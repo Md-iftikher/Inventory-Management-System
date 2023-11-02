@@ -36,7 +36,9 @@ public class Game extends StockableProduct {
 		int newStock = num;
 		setNumberOfItemsStocked(newStock);
 	}
-	
+
+
+
 	@Override
 	public String toString() {
 		return super.toString() + ", Developer = " + developer;

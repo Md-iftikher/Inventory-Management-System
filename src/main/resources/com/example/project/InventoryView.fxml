@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="1100.0" styleClass="white_Bg" stylesheets="@inventory.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.inventoryInfoController">
+   <children>
+      <AnchorPane layoutY="5.0" prefHeight="591.0" prefWidth="205.0" stylesheets="@adminDashboardDesign.css">
+         <children>
+            <ImageView fitHeight="79.0" fitWidth="67.0" layoutX="69.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Admin_user.png" />
+               </image>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </ImageView>
+            <Label layoutX="68.0" layoutY="123.0" text="Welcome" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="adminUserName" alignment="CENTER" layoutX="3.0" layoutY="149.0" prefHeight="23.0" prefWidth="202.0" text="Admin" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="68.0" layoutX="120.0" layoutY="183.0" startX="-100.0" stroke="WHITE" />
+            <Button fx:id="moveToDashHome_button" layoutX="16.0" layoutY="206.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Home" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@home-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="user_Sceren_for_order" layoutX="16.0" layoutY="258.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Order" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@3d_cube.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Admin_logoutButton" layoutX="23.0" layoutY="512.0" mnemonicParsing="false" onAction="#logout_From_dashboard_TO_admin_login" prefHeight="34.0" prefWidth="36.0" styleClass="logout_btn" stylesheets="@adminDashboardDesign.css">
+               <graphic>
+                  <ImageView fx:id="back_to_home" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="81.0" layoutY="524.0" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <styleClass>
+            <String fx:value="nav-form" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </AnchorPane>
+      <AnchorPane layoutX="452.0" layoutY="9.0" prefHeight="591.0" prefWidth="650.0" stylesheets="@inventory.css">
+         <children>
+            <TableView fx:id="ShowallProduct_TableView" layoutX="27.0" layoutY="56.0" prefHeight="527.0" prefWidth="677.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
+               <columns>
+                  <TableColumn fx:id="Product_Table_col_id" prefWidth="47.0" text="ID:" />
+                  <TableColumn fx:id="product_Table_col_Productname" prefWidth="146.0" styleClass="column-header" text="Product Name:" />
+                  <TableColumn fx:id="Product_Table_col_genre" prefWidth="88.0" styleClass="column-header" text="Genre" />
+                  <TableColumn fx:id="Product_Table_col_devloper_artist_director" prefWidth="123.0" styleClass="column-header" text="Devloper" />
+                  <TableColumn fx:id="Product_Table_col_price" minWidth="0.0" prefWidth="86.0" styleClass="column-header" text="Price" />
+                  <TableColumn fx:id="Product_Table_col_discount" minWidth="9.0" prefWidth="98.0" styleClass="column-header" text="Discount" />
+                  <TableColumn fx:id="Product_Table_col_NumOfItemStocked" minWidth="0.0" prefWidth="108.0" styleClass="column-header" text="Stocks" />
+               </columns>
+            </TableView>
+            <Label fx:id="changetextAfterClikingRadioButton" alignment="CENTER" layoutX="4.0" layoutY="4.0" prefHeight="51.0" prefWidth="695.0" styleClass="card-d" stylesheets="@inventory.css" text="All Product Of Game:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="white_Bg" />
+         </styleClass>
+      </AnchorPane>
+      <AnchorPane layoutX="211.0" layoutY="8.0" prefHeight="359.0" prefWidth="235.0" stylesheets="@inventory.css">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="white_Bg" />
+            <String fx:value="card-d" />
+         </styleClass>
+         <children>
+            <RadioButton fx:id="game_radio_button" layoutX="28.0" layoutY="75.0" mnemonicParsing="false" text="Game" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="radio_button" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="Movie_radio_button" layoutX="26.0" layoutY="137.0" mnemonicParsing="false" text="Movie" textFill="WHITE" toggleGroup="$radio_button">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="MusicRadio_Button" layoutX="27.0" layoutY="199.0" mnemonicParsing="false" text="Music" textFill="WHITE" toggleGroup="$radio_button">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </RadioButton>
+            <Label layoutX="35.0" layoutY="27.0" text="Choose One" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

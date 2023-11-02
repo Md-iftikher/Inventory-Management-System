@@ -5,7 +5,7 @@ public class Music extends StockableProduct{
 	private String artistName;
 	
 	public Music(String name, int productId, double price, String genre, int yearPublished, double discount, int numberOfItemsStocked, String artistName) {
-		super(artistName, productId, price, genre, yearPublished, discount, numberOfItemsStocked);
+		super(name, productId, price, genre, yearPublished, discount, numberOfItemsStocked);
 		this.artistName = artistName;
 	}
 
@@ -30,6 +30,7 @@ public class Music extends StockableProduct{
 		int newStock = currentStock - num;
 		setNumberOfItemsStocked(newStock);
 	}
+
 
 	@Override
 	public void editStock(int num) {

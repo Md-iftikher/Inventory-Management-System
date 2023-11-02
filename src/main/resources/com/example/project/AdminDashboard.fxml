@@ -68,7 +68,7 @@
                                  </font>
                               </Label>
                               <Line endX="68.0" layoutX="120.0" layoutY="183.0" startX="-100.0" stroke="WHITE" />
-                              <Button fx:id="adminDashHome_button" layoutX="16.0" layoutY="205.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Home" textFill="WHITE">
+                              <Button fx:id="adminDashHome_button" layoutX="16.0" layoutY="206.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Home" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -77,7 +77,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="admin_addproduct_Button" layoutX="16.0" layoutY="246.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Add Product" textFill="WHITE">
+                              <Button fx:id="admin_addproduct_Button" layoutX="16.0" layoutY="252.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Add Product" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -89,7 +89,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="Admin_dash_Order_back_user_Sceren_for_order" layoutX="16.0" layoutY="286.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Order" textFill="WHITE">
+                              <Button fx:id="Admin_dash_Order_back_user_Sceren_for_order" layoutX="16.0" layoutY="297.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Order" textFill="WHITE">
                                  <graphic>
                                     <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -112,6 +112,18 @@
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="admin_inventoryINfo_Button" layoutX="16.0" layoutY="338.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="52.0" prefWidth="161.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Inventory Info" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@info.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </children>
@@ -128,57 +140,38 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane layoutX="14.0" layoutY="9.0" prefHeight="128.0" prefWidth="265.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
+                                    <AnchorPane layoutX="22.0" layoutY="9.0" prefHeight="128.0" prefWidth="474.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
                                        <children>
                                           <ImageView fitHeight="83.0" fitWidth="76.0" layoutX="11.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@users.png" />
                                              </image>
                                           </ImageView>
-                                          <Label layoutX="97.0" layoutY="97.0" text="Total Order" textFill="WHITE">
+                                          <Label layoutX="189.0" layoutY="85.0" text="Total Order" textFill="WHITE">
                                              <font>
-                                                <Font name="Arial Bold" size="14.0" />
+                                                <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="home_number_order" alignment="BOTTOM_RIGHT" layoutX="179.0" layoutY="6.0" prefHeight="17.0" prefWidth="78.0" text="0" textFill="WHITE">
+                                          <Label fx:id="home_number_order" alignment="BOTTOM_RIGHT" layoutX="375.0" layoutY="15.0" prefHeight="17.0" prefWidth="78.0" text="0" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold Italic" size="18.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="301.0" layoutY="9.0" prefHeight="128.0" prefWidth="265.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
+                                    <AnchorPane layoutX="516.0" layoutY="9.0" prefHeight="128.0" prefWidth="346.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
                                        <children>
                                           <ImageView fitHeight="69.0" fitWidth="76.0" layoutX="11.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@money.png" />
                                              </image>
                                           </ImageView>
-                                          <Label layoutX="97.0" layoutY="102.0" text="Total Income" textFill="WHITE">
+                                          <Label layoutX="123.0" layoutY="85.0" text="Total Income" textFill="WHITE">
                                              <font>
-                                                <Font name="Arial Bold" size="14.0" />
+                                                <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="home_total_income" alignment="BOTTOM_RIGHT" layoutX="179.0" layoutY="11.0" prefHeight="17.0" prefWidth="78.0" text="\$0.00" textFill="WHITE">
-                                             <font>
-                                                <Font name="Arial Bold Italic" size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="587.0" layoutY="9.0" prefHeight="128.0" prefWidth="265.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css">
-                                       <children>
-                                          <ImageView fitHeight="69.0" fitWidth="76.0" layoutX="5.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@3d-cubeProduct.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label layoutX="91.0" layoutY="102.0" text="Avaible Product" textFill="WHITE">
-                                             <font>
-                                                <Font name="Arial Bold" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="home_avaibleProducts" alignment="BOTTOM_RIGHT" layoutX="173.0" layoutY="11.0" prefHeight="17.0" prefWidth="78.0" text="0" textFill="WHITE">
+                                          <Label fx:id="home_total_income" alignment="BOTTOM_RIGHT" layoutX="257.0" layoutY="11.0" prefHeight="17.0" prefWidth="78.0" text="\$0.00" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold Italic" size="18.0" />
                                              </font>
@@ -199,7 +192,7 @@
                                           <String fx:value="shadow" />
                                        </styleClass>
                                        <children>
-                                          <BarChart fx:id="home_income_chart" layoutX="-8.0" layoutY="-54.0" prefHeight="346.0" prefWidth="492.0" title="Income Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <BarChart fx:id="home_income_chart" layoutX="-8.0" layoutY="-54.0" prefHeight="346.0" prefWidth="466.0" title="Income Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <xAxis>
                                               <CategoryAxis side="BOTTOM" />
                                             </xAxis>
@@ -334,7 +327,7 @@
                                           <Font name="Tahoma Bold" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TableView fx:id="addProduct_TableView" layoutX="151.0" layoutY="48.0" onSort="#addProduct" prefHeight="482.0" prefWidth="438.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
+                                    <TableView fx:id="addProduct_TableView" layoutX="151.0" layoutY="48.0" prefHeight="482.0" prefWidth="438.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
                                       <columns>
                                          <TableColumn fx:id="addProduct_Table_col_id" prefWidth="47.0" text="ID:" />
                                          <TableColumn fx:id="addProduct_Table_col_Productname" prefWidth="121.0" styleClass="column-header" text="Product Name:" />
@@ -342,7 +335,7 @@
                                          <TableColumn fx:id="addProduct_Table_col_devloper_artist_director" prefWidth="93.0" styleClass="column-header" text="Devloper" />
                                          <TableColumn fx:id="addProduct_Table_col_price" prefWidth="38.0" styleClass="column-header" text="Price" />
                                          <TableColumn fx:id="addProduct_Table_col_discount" prefWidth="78.0" styleClass="column-header" text="Discount" />
-                                         <TableColumn fx:id="addProduct_Table_col_remainingstocks" prefWidth="67.0" styleClass="column-header" text="Stocks" />
+                                         <TableColumn fx:id="addProduct_Table_col_NumOfItemStocked" prefWidth="67.0" styleClass="column-header" text="Stocks" />
 
                                       </columns>
                                     </TableView>

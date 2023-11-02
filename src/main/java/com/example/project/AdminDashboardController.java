@@ -6,12 +6,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -24,7 +23,8 @@ import java.util.Optional;
 public class AdminDashboardController {
     @FXML
     private Button Admin_dash_Order_back_user_Sceren_for_order;
-
+    @FXML
+    private Button admin_inventoryINfo_Button;
     @FXML
     private Button Admin_logoutButton;
 
@@ -53,28 +53,28 @@ public class AdminDashboardController {
     private TextField addProduct_Stocks;
 
     @FXML
-    private TableView<Product> addProduct_TableView;
+    private TableView<ProductDataForTableView> addProduct_TableView;
 
     @FXML
-    private TableColumn<Product, String> addProduct_Table_col_Productname;
+    private TableColumn<ProductDataForTableView, String> addProduct_Table_col_Productname;
 
     @FXML
-    private TableColumn<Product, String> addProduct_Table_col_devloper_artist_director;
+    private TableColumn<ProductDataForTableView, String> addProduct_Table_col_devloper_artist_director;
 
     @FXML
-    private TableColumn<Product, Double> addProduct_Table_col_discount;
+    private TableColumn<ProductDataForTableView, Double> addProduct_Table_col_discount;
 
     @FXML
-    private TableColumn<Product, String> addProduct_Table_col_genre;
+    private TableColumn<ProductDataForTableView, String> addProduct_Table_col_genre;
 
     @FXML
-    private TableColumn<Product, Integer> addProduct_Table_col_id;
+    private TableColumn<ProductDataForTableView, Integer> addProduct_Table_col_id;
 
     @FXML
-    private TableColumn<Product, Double> addProduct_Table_col_price;
+    private TableColumn<ProductDataForTableView, Double> addProduct_Table_col_price;
 
     @FXML
-    private TableColumn<Product, Integer> addProduct_Table_col_remainingstocks;
+    private TableColumn<ProductDataForTableView, Integer> addProduct_Table_col_NumOfItemStocked;
 
     @FXML
     private TextField addProduct_Year_of_publish;
@@ -137,11 +137,56 @@ public class AdminDashboardController {
     private Music music;
     @FXML
     private Movie movie;
+    @FXML
+    private ObservableList<ProductDataForTableView> productDataList = FXCollections.observableArrayList();
 
-    //product type intilize in Combobox.
-    private String[] producttypelist={"Movie","Game","Music"};
+//    @FXML
+//    public ObservableList<ProductDataForTableView> addproductlist(){
+//        ObservableList<ProductDataForTableView>productDataList=FXCollections.observableArrayList();
+//        String productName = addProduct_name.getText();
+//        int productId = Integer.parseInt(addProductId.getText());
+//        double price = Double.parseDouble(addProduct_price.getText());
+//        String genre = addProduct_genre.getText();
+//        double discount = Double.parseDouble(addProduct_Discount.getText());
+//        int stocks = Integer.parseInt(addProduct_Stocks.getText());
+//        String developer_artist_director = addProduct_change_texbox.getText();
+//        ProductDataForTableView newProduct;
+//        try {
+//            newProduct = new ProductDataForTableView(productId, productName, genre, developer_artist_director, price, discount, stocks);
+//            productDataList.add(newProduct);
+//        }
+//        catch (Exception e){
+//            System.out.println(e);
+//        }
+//        return productDataList;
+//    }
+    @FXML
+    private ObservableList<ProductDataForTableView>addproductDataList;
+    @FXML
+    public void adproductshowlistdata() {
+        //addproductDataList=addproductlist();
+
+        addProduct_Table_col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        addProduct_Table_col_Productname.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        addProduct_Table_col_genre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        addProduct_Table_col_devloper_artist_director.setCellValueFactory(new PropertyValueFactory<>("developerArtistDirector"));
+        addProduct_Table_col_price.setCellValueFactory(new PropertyValueFactory<>("price"));
+        addProduct_Table_col_discount.setCellValueFactory(new PropertyValueFactory<>("discount"));
+        addProduct_Table_col_NumOfItemStocked.setCellValueFactory(new PropertyValueFactory<>("numOfItemStocked"));
+
+        //addProduct_TableView.setItems(addproductDataList);
+        addProduct_TableView.setItems(productDataList);
+
+    }
+
+
+
+
+
+
     @FXML
     public void intializeproductType(){ //product type intilize in Combobox.
+        String[] producttypelist={"Movie","Game","Music"};
         List<String> listT=new ArrayList<>();
         for(String data:producttypelist){
             listT.add(data);
@@ -152,6 +197,7 @@ public class AdminDashboardController {
         addProduct_Change_label_with_type.setText("Director:");
         addProduct_Table_col_devloper_artist_director.setText("Devloper");
         handleProductTypeChange();
+
     }
     @FXML
     public void handleProductTypeChange() {
@@ -182,23 +228,33 @@ public class AdminDashboardController {
           double discount = Double.parseDouble(addProduct_Discount.getText());
           int stocks = Integer.parseInt(addProduct_Stocks.getText());
           String developer_artist_director = addProduct_change_texbox.getText();
-
           try {
               if (selectedCategory.equals("Game")) {
+                  adproductshowlistdata();
                   game = new Game(productName, productId, price, genre, yearOfPublish, discount, stocks, developer_artist_director);
+                  productDataList.add(new ProductDataForTableView(game.getProductId(), game.getName(), game.getGenre(), game.getDeveloper(), game.getPrice(), game.getDiscount(), game.getNumberOfItemsStocked()));
                   Inventory.getInstance().addItem(game);
                   updateProductInfoInFile(game);
+
               } else if (selectedCategory.equals("Music")) {
+                  adproductshowlistdata();
                   music = new Music(productName, productId, price, genre, yearOfPublish, discount, stocks, developer_artist_director);
+                  productDataList.add(new ProductDataForTableView(music.getProductId(), music.getName(), music.getGenre(), music.getArtistName(), music.getPrice(), music.getDiscount(), music.getNumberOfItemsStocked()));
                   Inventory.getInstance().addItem(music);
                   updateProductInfoInFile(music);
+
               } else if (selectedCategory.equals("Movie")) {
+                  adproductshowlistdata();
                   movie = new Movie(productName, productId, price, genre, yearOfPublish, discount, stocks, developer_artist_director);
+                  productDataList.add(new ProductDataForTableView(movie.getProductId(), movie.getName(), movie.getGenre(), movie.getDirector(), movie.getPrice(), movie.getDiscount(), movie.getNumberOfItemsStocked()));
                   Inventory.getInstance().addItem(movie);
                   updateProductInfoInFile(movie);
+
               }
+
+              adproductshowlistdata();
           } catch (Exception e) {
-              e.printStackTrace();
+              System.out.println(e);
           }
       }
     public void updateProductInfoInFile(StockableProduct sp) {
@@ -277,17 +333,49 @@ public class AdminDashboardController {
             home_form.setVisible(false);
             addProduct_Form.setVisible(true);
             intializeproductType();
-
+            clearInputFields();
         } else if (event.getSource() == Admin_dash_Order_back_user_Sceren_for_order) {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
-                Parent root = fxmlLoader.load();
-                Scene scene = new Scene(root, 600, 400);
-                Stage currentStage = (Stage) Admin_dash_Order_back_user_Sceren_for_order.getScene().getWindow();
-                currentStage.setScene(scene);
-                currentStage.show();
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("confirmation Message");
+                alert.setHeaderText(null);
+                alert.setContentText(" For Order. Do you Want To Go User Loing Screen? ");
+                Optional<ButtonType> option = alert.showAndWait();
+                if (option.get().equals(ButtonType.OK)) {
+
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Scene scene = new Scene(root, 600, 400);
+                    Stage currentStage = (Stage) Admin_dash_Order_back_user_Sceren_for_order.getScene().getWindow();
+                    currentStage.setScene(scene);
+                    currentStage.show();
+                }
             } catch (Exception e) {
                 System.out.println(e);
+            }
+        }
+        else if(event.getSource() == admin_inventoryINfo_Button) {
+            try {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("confirmation Message");
+                alert.setHeaderText(null);
+                alert.setContentText(" For Order. Do you Want To Go User Loing Screen? ");
+                Optional<ButtonType> option = alert.showAndWait();
+                if (option.get().equals(ButtonType.OK)) {
+
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InventoryView.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Scene scene = new Scene(root, 600, 450);
+                    String css = this.getClass().getResource("inventory.css").toExternalForm();
+                    scene.getStylesheets().add(css);
+                    Stage currentStage = (Stage) admin_inventoryINfo_Button.getScene().getWindow();
+                    currentStage.setScene(scene);
+                    currentStage.show();
+                }
+
+            }
+            catch (Exception e){
+                e.printStackTrace();
             }
         }
     }
@@ -316,6 +404,10 @@ public class AdminDashboardController {
             e.printStackTrace();
         }
     }
+//    public void movetoInventoryinfo(){
+//
+//    }
+
 
 }
 

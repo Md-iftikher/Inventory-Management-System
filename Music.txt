@@ -1,0 +1,9 @@
+Name: how to 
+Product Id: 78
+Price: 10.0
+Genre: action
+Year of Publish: 2018
+Discount: 10.0
+No of Items Stocked: 100
+Artist: me
+
