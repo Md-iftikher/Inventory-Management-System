@@ -9,7 +9,11 @@ public class Music extends StockableProduct{
 		this.artistName = artistName;
 	}
 
-	public String getArtistName() {
+    public Music() {
+
+    }
+
+    public String getArtistName() {
 		return artistName;
 	}
 

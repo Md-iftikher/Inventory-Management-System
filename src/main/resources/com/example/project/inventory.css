@@ -74,6 +74,32 @@
 .reset_button:hover{
    -fx-background-color:#4969al;
 }
+how to write css for table view In JavaFX ? i have written this but is not working: .table_view{
+    -fx-background-color:transparent;
+    -fx-padding:0px;
+    -fx-border-color:linear-gradient(to bottom right, #22bcdd, #296c90);
+    -fx-border-radius:8px;
+    -fx-border-width:2px;
+}
+.table-view {
+    -fx-background-color: transparent;
+    -fx-padding: 0px;
+    -fx-border-color: linear-gradient(to bottom right, #22bcdd, #296c90);
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom right, #22bcdd, #296c90);
+    -fx-background-radius: 8px 8px 0 0;
+}
+
+.table-view .column-header, .table-view .filter {
+    -fx-background-color: transparent;
+    -fx-pref-width: 50px;
+}
+
+
 
 
 

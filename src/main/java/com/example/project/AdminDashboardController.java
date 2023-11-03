@@ -139,29 +139,6 @@ public class AdminDashboardController {
     private Movie movie;
     @FXML
     private ObservableList<ProductDataForTableView> productDataList = FXCollections.observableArrayList();
-
-//    @FXML
-//    public ObservableList<ProductDataForTableView> addproductlist(){
-//        ObservableList<ProductDataForTableView>productDataList=FXCollections.observableArrayList();
-//        String productName = addProduct_name.getText();
-//        int productId = Integer.parseInt(addProductId.getText());
-//        double price = Double.parseDouble(addProduct_price.getText());
-//        String genre = addProduct_genre.getText();
-//        double discount = Double.parseDouble(addProduct_Discount.getText());
-//        int stocks = Integer.parseInt(addProduct_Stocks.getText());
-//        String developer_artist_director = addProduct_change_texbox.getText();
-//        ProductDataForTableView newProduct;
-//        try {
-//            newProduct = new ProductDataForTableView(productId, productName, genre, developer_artist_director, price, discount, stocks);
-//            productDataList.add(newProduct);
-//        }
-//        catch (Exception e){
-//            System.out.println(e);
-//        }
-//        return productDataList;
-//    }
-    @FXML
-    private ObservableList<ProductDataForTableView>addproductDataList;
     @FXML
     public void adproductshowlistdata() {
         //addproductDataList=addproductlist();
@@ -232,21 +209,21 @@ public class AdminDashboardController {
               if (selectedCategory.equals("Game")) {
                   adproductshowlistdata();
                   game = new Game(productName, productId, price, genre, yearOfPublish, discount, stocks, developer_artist_director);
-                  productDataList.add(new ProductDataForTableView(game.getProductId(), game.getName(), game.getGenre(), game.getDeveloper(), game.getPrice(), game.getDiscount(), game.getNumberOfItemsStocked()));
+                  productDataList.add(new ProductDataForTableView(game.getProductId(), game.getName(), game.getGenre(), game.getDeveloper(),game.getYearPublished(),game.getPrice(), game.getDiscount(), game.getNumberOfItemsStocked()));
                   Inventory.getInstance().addItem(game);
                   updateProductInfoInFile(game);
 
               } else if (selectedCategory.equals("Music")) {
                   adproductshowlistdata();
                   music = new Music(productName, productId, price, genre, yearOfPublish, discount, stocks, developer_artist_director);
-                  productDataList.add(new ProductDataForTableView(music.getProductId(), music.getName(), music.getGenre(), music.getArtistName(), music.getPrice(), music.getDiscount(), music.getNumberOfItemsStocked()));
+                  productDataList.add(new ProductDataForTableView(music.getProductId(), music.getName(), music.getGenre(), music.getArtistName(),music.getYearPublished(), music.getPrice(), music.getDiscount(), music.getNumberOfItemsStocked()));
                   Inventory.getInstance().addItem(music);
                   updateProductInfoInFile(music);
 
               } else if (selectedCategory.equals("Movie")) {
                   adproductshowlistdata();
                   movie = new Movie(productName, productId, price, genre, yearOfPublish, discount, stocks, developer_artist_director);
-                  productDataList.add(new ProductDataForTableView(movie.getProductId(), movie.getName(), movie.getGenre(), movie.getDirector(), movie.getPrice(), movie.getDiscount(), movie.getNumberOfItemsStocked()));
+                  productDataList.add(new ProductDataForTableView(movie.getProductId(), movie.getName(), movie.getGenre(), movie.getDirector(),movie.getYearPublished(), movie.getPrice(), movie.getDiscount(), movie.getNumberOfItemsStocked()));
                   Inventory.getInstance().addItem(movie);
                   updateProductInfoInFile(movie);
 
@@ -359,13 +336,13 @@ public class AdminDashboardController {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("confirmation Message");
                 alert.setHeaderText(null);
-                alert.setContentText(" For Order. Do you Want To Go User Loing Screen? ");
+                alert.setContentText(" Do you Want to GO inventory? ");
                 Optional<ButtonType> option = alert.showAndWait();
                 if (option.get().equals(ButtonType.OK)) {
 
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("InventoryView.fxml"));
                     Parent root = fxmlLoader.load();
-                    Scene scene = new Scene(root, 600, 450);
+                    Scene scene = new Scene(root, 1100, 600);
                     String css = this.getClass().getResource("inventory.css").toExternalForm();
                     scene.getStylesheets().add(css);
                     Stage currentStage = (Stage) admin_inventoryINfo_Button.getScene().getWindow();
@@ -375,12 +352,12 @@ public class AdminDashboardController {
 
             }
             catch (Exception e){
-                e.printStackTrace();
+                System.out.println(e);
             }
         }
     }
 
-            @FXML
+    @FXML
     public void logout_From_dashboard_TO_admin_login(){
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -404,9 +381,121 @@ public class AdminDashboardController {
             e.printStackTrace();
         }
     }
-//    public void movetoInventoryinfo(){
-//
-//    }
+    @FXML
+    public void updateProductInFile(ActionEvent event) {
+        try {
+            String selectedCategory = (String)addProduct_tyoe.getValue();
+
+
+            String productName = addProduct_name.getText();
+            int productId = Integer.parseInt(addProductId.getText());
+            double price = Double.parseDouble(addProduct_price.getText());
+            String genre = addProduct_genre.getText();
+            int yearOfPublish = Integer.parseInt(addProduct_Year_of_publish.getText());
+            double discount = Double.parseDouble(addProduct_Discount.getText());
+            int stocks = Integer.parseInt(addProduct_Stocks.getText());
+            String developer_artist_director = addProduct_change_texbox.getText();
+
+            String fileName = null;
+            if (selectedCategory.equals("Game")) {
+                fileName = "Game.txt";
+            } else if (selectedCategory.equals("Movie")) {
+                fileName = "Movie.txt";
+            } else if (selectedCategory.equals("Music")) {
+                fileName = "Music.txt";
+            }
+
+            File file = new File(fileName);
+            File tempFile = new File("temp.txt");
+
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile));
+
+            String line;
+            boolean found = false;
+
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("Name: ")) {
+                    String currentProductName = line.substring("Name: ".length());
+                    int currentProductId = Integer.parseInt(br.readLine().substring("Product Id: ".length()));
+                    //write all current product then try it will work.
+
+                    if (currentProductId == productId && currentProductName.equals(productName)) {
+
+                        bw.write("Name: " + productName);
+                        bw.newLine();
+                        bw.write("Product Id: " + productId);
+                        bw.newLine();
+                        bw.write("Price: " + price);
+                        bw.newLine();
+                        bw.write("Genre: " + genre);
+                        bw.newLine();
+                        bw.write("Year of Publish: " + yearOfPublish);
+                        bw.newLine();
+                        bw.write("Discount: " + discount);
+                        bw.newLine();
+                        bw.write("No of Items Stocked: " + stocks);
+                        bw.newLine();
+                        if (selectedCategory.equals("Game")) {
+                            bw.write("Developer: " + developer_artist_director);
+                            bw.newLine();
+                        } else if (selectedCategory.equals("Movie")) {
+                            bw.write("Director: " + developer_artist_director);
+                            bw.newLine();
+                        } else if (selectedCategory.equals("Music")) {
+                            bw.write("Artist: " + developer_artist_director);
+                            bw.newLine();
+                        }
+                        found = true;
+                    } else {
+
+                        bw.write(line);
+                        bw.newLine();
+                    }
+                } else {
+
+                    bw.write(line);
+                    bw.newLine();
+                }
+            }
+
+            br.close();
+            bw.close();
+
+            if (found) {
+
+                if (file.delete()) {
+                    if (!tempFile.renameTo(file)) {
+                        System.err.println("Failed to rename the temp file.");
+                    }
+                } else {
+                    System.err.println("Failed to delete the original file.");
+                }
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText(null);
+                alert.setContentText("Product updated successfully.");
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Product with ID " + productId + " and name " + productName + " not found.");
+                alert.showAndWait();
+            }
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid input. Please enter valid product ID and values.");
+            alert.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 }

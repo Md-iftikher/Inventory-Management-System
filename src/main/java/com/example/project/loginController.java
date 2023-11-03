@@ -81,8 +81,26 @@ public class loginController {
 
         if (loginSuccessful) {
             loginMassagelebel.setText("Login successful!");
+            logintouserInvoice();
         } else {
             loginMassagelebel.setText("Invalid Login. Please Try again.");
+        }
+    }
+
+    private void logintouserInvoice() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("userDashboard.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root, 1100, 600);
+            String css = this.getClass().getResource("adminlogin.css").toExternalForm();
+            scene.getStylesheets().add(css);
+            Stage currentStage = (Stage) loginButton.getScene().getWindow();
+            currentStage.setScene(scene);
+            currentStage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.getCause();
+            e.printStackTrace();
         }
     }
 

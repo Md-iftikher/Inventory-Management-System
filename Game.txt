@@ -1,90 +1,27 @@
-Name: clash of clan
-Product Id: 14
-Price: 5.0
-Genre: action
-Year of Publish: 2015
-Discount: 2.0
-No of Items Stocked: 10
-Developer: axur
-
-Name: hghhhg
-Product Id: 14
-Price: 10.0
-Genre: action
+Name: Red Dead Redemption 2
+Product Id: 12
+Price: 29
+Genre: Survival
 Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Developer: me
+Discount: 3.7
+No of Items Stocked: 1000
+Developer: RockStar
 
-Name: hghhhg
+Name: God of War
 Product Id: 14
-Price: 10.0
-Genre: action
+Price: 12
+Genre: Action
 Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Developer: me
+Discount: 5.6
+No of Items Stocked: 567
+Developer: Javaground
 
-Name: hghhhg
-Product Id: 14
-Price: 10.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Developer: me
-
-Name: jghnf
-Product Id: 14
-Price: 10.0
-Genre: action
-Year of Publish: 2015
-Discount: 10.0
+Name: Grand Theft Auto V
+Product Id: 16
+Price: 13.0
+Genre: Action
+Year of Publish: 2017
+Discount: 2.3
 No of Items Stocked: 100
-Developer: me
-
-Name: fjjhu
-Product Id: 5
-Price: 10.0
-Genre: fddg
-Year of Publish: 2018
-Discount: 10.0
-No of Items Stocked: 200
-Developer: dggg
-
-Name: fjjhu
-Product Id: 5
-Price: 10.0
-Genre: fddg
-Year of Publish: 2018
-Discount: 10.0
-No of Items Stocked: 200
-Developer: dggg
-
-Name: fjjhu
-Product Id: 5
-Price: 10.0
-Genre: fddg
-Year of Publish: 2018
-Discount: 10.0
-No of Items Stocked: 200
-Developer: dggg
-
-Name: fjjhu
-Product Id: 5
-Price: 10.0
-Genre: fddg
-Year of Publish: 2018
-Discount: 10.0
-No of Items Stocked: 200
-Developer: dggg
-
-Name: clash with clain
-Product Id: 85
-Price: 10.0
-Genre: action
-Year of Publish: 2015
-Discount: 5.0
-No of Items Stocked: 10
-Developer: azure
+Developer: RockStar
 

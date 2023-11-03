@@ -7,3 +7,57 @@ Discount: 10.0
 No of Items Stocked: 100
 Artist: me
 
+Name: Submarine
+Product Id: 1
+Price: 20
+Genre: Indie
+Year of Publish: 2011
+Discount: 10
+No of Items Stocked: 100
+Artist: Alex Turner
+
+Name: AM
+Product Id: 2
+Price: 10
+Genre: Indie
+Year of Publish: 2013
+Discount: 5.5
+No of Items Stocked: 10
+Artist: Arctic Monkeys
+
+Name: Tranquility Base Hotel and Casino
+Product Id: 3
+Price: 23
+Genre: Indie
+Year of Publish: 2018
+Discount: 7.5
+No of Items Stocked: 500
+Artist: Arctic Monkeys
+
+Name: Rust in Peace
+Product Id: 4
+Price: 33
+Genre: Metal
+Year of Publish: 1990
+Discount: 2.5
+No of Items Stocked: 10
+Artist: Megadeath
+
+Name:Abbey Road
+Product Id: 5
+Price: 25
+Genre: Rock
+Year of Publish: 1969
+Discount: 7.8
+No of Items Stocked: 5
+Artist: The Beatles
+
+Name: The Dark Side of the Moon
+Product Id: 6
+Price: 35
+Genre: Progressive Rock
+Year of Publish: 1973
+Discount: 2.5
+No of Items Stocked: 10
+Artist: Pink Floyd
+

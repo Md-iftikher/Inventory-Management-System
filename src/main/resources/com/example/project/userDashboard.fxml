@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.userinvoiceController">
+   <children>
+      <AnchorPane layoutX="6.0" layoutY="5.0" prefHeight="591.0" prefWidth="205.0" stylesheets="@adminDashboardDesign.css">
+         <children>
+            <ImageView fitHeight="79.0" fitWidth="67.0" layoutX="69.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Admin_user.png" />
+               </image>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </ImageView>
+            <Label layoutX="68.0" layoutY="123.0" text="Welcome" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="UserName" alignment="CENTER" layoutX="3.0" layoutY="149.0" prefHeight="23.0" prefWidth="202.0" text="User" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="68.0" layoutX="120.0" layoutY="183.0" startX="-100.0" stroke="WHITE" />
+            <Button fx:id="back_to_home" layoutX="23.0" layoutY="533.0" mnemonicParsing="false" onAction="#logout_From_inventory_toHome" prefHeight="34.0" prefWidth="36.0" styleClass="logout_btn" stylesheets="@adminDashboardDesign.css">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="81.0" layoutY="545.0" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <styleClass>
+            <String fx:value="nav-form" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </AnchorPane>
+      <AnchorPane layoutX="768.0" layoutY="8.0" prefHeight="584.0" prefWidth="324.0" stylesheets="@adminDashboardDesign.css">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="white_Bg" />
+         </styleClass>
+         <children>
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="324.0" stylesheets="@adminDashboardDesign.css" text="Add Product" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="shadow" />
+                  <String fx:value="nav-form" />
+               </styleClass>
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="115.0" text="Product Name:">
+               <font>
+                  <Font name="Tahoma Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Product_name" layoutX="132.0" layoutY="112.0" prefHeight="12.0" prefWidth="179.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+            <Label alignment="TOP_RIGHT" layoutX="21.0" layoutY="73.0" prefHeight="16.0" prefWidth="103.0" text="Product Type:">
+               <font>
+                  <Font name="Tahoma Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="choseProduct_type" layoutX="132.0" layoutY="70.0" prefHeight="25.0" prefWidth="179.0" promptText="Choose" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+            <Label alignment="CENTER_RIGHT" layoutX="23.0" layoutY="153.0" prefHeight="18.0" prefWidth="102.0" text="Genre:">
+               <font>
+                  <Font name="Tahoma Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Product_genre" layoutX="132.0" layoutY="149.0" prefHeight="12.0" prefWidth="179.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+            <Label fx:id="addProduct_Change_label_with_type" alignment="CENTER_RIGHT" layoutX="24.0" layoutY="192.0" prefHeight="18.0" prefWidth="102.0" text="ID:">
+               <font>
+                  <Font name="Tahoma Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="product_id" layoutX="133.0" layoutY="188.0" prefHeight="12.0" prefWidth="179.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+            <Label fx:id="quantityTextField" alignment="CENTER_RIGHT" layoutX="7.0" layoutY="230.0" prefHeight="18.0" prefWidth="119.0" text="Quantity">
+               <font>
+                  <Font name="Tahoma Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="13.0" layoutY="284.0" prefHeight="19.0" prefWidth="88.0" text="Total Price:">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="285.0" prefHeight="18.0" prefWidth="77.0" text="Discount:">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="addProduct_Add_button" layoutX="39.0" layoutY="436.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="add_button" stylesheets="@adminDashboardDesign.css" text="Recipt">
+               <font>
+                  <Font name="Tahoma Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="PaymentButton" layoutX="182.0" layoutY="502.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="update_button" stylesheets="@adminDashboardDesign.css" text="Pay">
+               <font>
+                  <Font name="Tahoma Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="addProduct_Reset_button" layoutX="39.0" layoutY="509.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="105.0" styleClass="reset_button" stylesheets="@adminDashboardDesign.css" text="Reset">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </Button>
+            <Spinner fx:id="productQuantity" layoutX="134.0" layoutY="227.0" onMouseClicked="#ordershowspinervalue" prefHeight="25.0" prefWidth="95.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+            <Label fx:id="TotalPriceOFOrder" layoutX="106.0" layoutY="281.0" prefHeight="25.0" prefWidth="75.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" text="\$0.00">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="DiscountAfterOfer" layoutX="265.0" layoutY="281.0" prefHeight="27.0" prefWidth="48.0" styleClass="textfield" stylesheets="@adminDashboardDesign.css" text="\%">
+               <font>
+                  <Font name="Tahoma" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="328.0" prefHeight="34.0" prefWidth="95.0" text="Amount: ">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="PaymentAmount" layoutX="157.0" layoutY="328.0" prefHeight="34.0" prefWidth="95.0" promptText="\$0.00" styleClass="textfield" stylesheets="@adminDashboardDesign.css" />
+            <Button fx:id="addProduct_Reset_button1" layoutX="180.0" layoutY="436.0" mnemonicParsing="false" onAction="#load_data_in_table" prefHeight="41.0" prefWidth="105.0" styleClass="reset_button" stylesheets="@adminDashboardDesign.css" text="Add">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="222.0" layoutY="8.0" prefHeight="584.0" prefWidth="534.0" stylesheets="@adminDashboardDesign.css">
+         <children>
+            <TableView fx:id="invoiceTableView" layoutX="7.0" layoutY="60.0" prefHeight="519.0" prefWidth="519.0" styleClass="shadow" stylesheets="@adminDashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="60.0">
+              <columns>
+                <TableColumn fx:id="invoice_Tableview_Product_Type" prefWidth="60.0" text=" Type" />
+                <TableColumn fx:id="invoice_Tableview_Product_name" prefWidth="137.0" text="Product Name" />
+                  <TableColumn fx:id="invoice_Tableview_Product_devloper_artist_director" prefWidth="99.0" text="Devloper" />
+                  <TableColumn fx:id="invoice_Tableview_Product_Genre" minWidth="0.0" prefWidth="87.0" text="Genre" />
+                  <TableColumn fx:id="invoice_Tableview_Product_Quantity" minWidth="0.0" prefWidth="69.0" text="Quantity" />
+                  <TableColumn fx:id="invoice_Tableview_Product_price_withQuantity" minWidth="0.0" prefWidth="66.0" text="price" />
+              </columns>
+            </TableView>
+            <Label alignment="CENTER" layoutX="8.0" layoutY="9.0" prefHeight="46.0" prefWidth="519.0" styleClass="card-d" stylesheets="@adminDashboardDesign.css" text="Added Product" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <styleClass>
+            <String fx:value="white_Bg" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </AnchorPane>
+   </children>
+</AnchorPane>

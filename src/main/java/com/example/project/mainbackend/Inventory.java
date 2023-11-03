@@ -9,7 +9,7 @@ public class Inventory implements Iterable<StockableProduct>{
 	public static Inventory instance;
 	private ArrayList<StockableProduct> items = new ArrayList<StockableProduct>();
 	
-	private Inventory() {
+	public Inventory() {
 		
 	}
 	
@@ -25,7 +25,6 @@ public class Inventory implements Iterable<StockableProduct>{
 	}
 	
 	public void removeItem(int productId) {
-		//items.removeIf(s -> s.getProductId() == productId);
 		Iterator<StockableProduct> itr = items.iterator();
 		while(itr.hasNext()) {
 			if(itr.next().getProductId() == productId) {

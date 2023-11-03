@@ -1,12 +1,21 @@
 package com.example.project.mainbackend;
 
 public class Game extends StockableProduct {
-	
+
 	private String developer;
-	
+
 	public Game(String name, int productId, double price, String genre, int yearPublished, double discount, int numberOfItemsStocked, String developer) {
 		super(name, productId, price, genre, yearPublished, discount, numberOfItemsStocked);
 		this.developer = developer;
+	}
+
+	public Game() {
+		super();
+	}
+
+	@Override
+	public int getNumberOfItemsStocked() {
+		return super.getNumberOfItemsStocked();
 	}
 
 	public String getDeveloper() {

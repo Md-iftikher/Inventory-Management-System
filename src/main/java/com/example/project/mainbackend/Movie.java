@@ -9,6 +9,10 @@ public class Movie extends StockableProduct{
 		this.director = director;
 	}
 
+    public Movie() {
+
+    }
+
 	public String getDirector() {
 		return director;
 	}

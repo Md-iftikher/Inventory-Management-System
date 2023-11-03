@@ -1,130 +1,4 @@
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
-Product Id: 14
-Price: 100.0
-Genre: action
-Year of Publish: 2018
-Discount: 5.0
-No of Items Stocked: 10
-Director: me
-
-Name: fhfhhghg
+Name: i dont know
 Product Id: 14
 Price: 100.0
 Genre: action
@@ -168,4 +42,76 @@ Year of Publish: 2023
 Discount: 5.0
 No of Items Stocked: 100
 Director: jfhf
+
+Name: go to hell
+Product Id: 456
+Price: 10.0
+Genre: survival
+Year of Publish: 2015
+Discount: 2.5
+No of Items Stocked: 10
+Director: myselg
+
+Name: Good Will Hunting
+Product Id: 7
+Price: 12
+Genre: Drama
+Year of Publish: 1997
+Discount: 5.4
+No of Items Stocked: 123
+Director: Gus Van Sant
+
+Name: Life Is Beautiful
+Product Id: 8
+Price: 20
+Genre: Comedy-Drama
+Year of Publish: 1997
+Discount: 2.6
+No of Items Stocked: 126
+Director: Roberto Benigni
+
+Name: What's Eating Gilbert Grape
+Product Id: 9
+Price: 20
+Genre: Drama
+Year of Publish: 1993
+Discount: 6.4
+No of Items Stocked: 122
+Director: Lasse Hallstrom
+
+Name: The Godfather
+Product Id: 10
+Price: 15
+Genre: Crime
+Year of Publish: 1972
+Discount: 10
+No of Items Stocked: 125
+Director: Francis Ford Coppola
+
+Name: The Rainmaker
+Product Id: 11
+Price: 5
+Genre: Crime
+Year of Publish: 1997
+Discount: 12
+No of Items Stocked: 127
+Director: Francis Ford Coppola
+
+Name: Apocalypse Now
+Product Id: 12
+Price: 24
+Genre: Drama
+Year of Publish: 1979
+Discount: 4.9
+No of Items Stocked: 121
+Director: Francis Ford Coppola
+
+Name: Leon The Professional
+Product Id: 13
+Price: 21
+Genre: Drama
+Year of Publish: 1994
+Discount: 2.7
+No of Items Stocked: 124
+Director: Luc Besson
 

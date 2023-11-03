@@ -8,6 +8,10 @@ public abstract class Product {
 	private String genre;
 	private int yearPublished;
 	private double discount;
+	private int numberOfItemsStocked;
+	private String developer;
+	private String artistName;
+	private String director;
 	
 	public Product(String name, int productId, double price, String genre, int yearPublished, double discount) {
 		this.name = name;
@@ -17,6 +21,23 @@ public abstract class Product {
 		this.yearPublished = yearPublished;
 		this.discount = discount;
 	}
+
+	public Product() {
+
+	}
+	public int getNumberOfItemsStocked() {
+
+		return numberOfItemsStocked;
+	}
+	public String getDeveloper() {return developer;
+	}
+	public String getArtistName() {
+		return artistName;
+	}
+	public String getDirector() {
+		return director;
+	}
+
 
 	public String getName() {
 		return name;
@@ -74,5 +95,4 @@ public abstract class Product {
 				+ ", Year Published = " + yearPublished + ", Discount = " + discount;
 	}
 
-	
 }

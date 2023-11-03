@@ -14,7 +14,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="1100.0" styleClass="white_Bg" stylesheets="@inventory.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.inventoryInfoController">
    <children>
       <AnchorPane layoutY="5.0" prefHeight="591.0" prefWidth="205.0" stylesheets="@adminDashboardDesign.css">
@@ -47,7 +46,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="user_Sceren_for_order" layoutX="16.0" layoutY="258.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Order" textFill="WHITE">
+            <Button fx:id="user_Sceren_for_order" layoutX="16.0" layoutY="255.0" mnemonicParsing="false" onAction="#close_back_to_login" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Order" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -56,9 +55,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Admin_logoutButton" layoutX="23.0" layoutY="512.0" mnemonicParsing="false" onAction="#logout_From_dashboard_TO_admin_login" prefHeight="34.0" prefWidth="36.0" styleClass="logout_btn" stylesheets="@adminDashboardDesign.css">
+            <Button fx:id="back_to_home" layoutX="23.0" layoutY="512.0" mnemonicParsing="false" onAction="#logout_From_inventory_toHome" prefHeight="34.0" prefWidth="36.0" styleClass="logout_btn" stylesheets="@adminDashboardDesign.css">
                <graphic>
-                  <ImageView fx:id="back_to_home" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@logout.png" />
                      </image>
@@ -76,24 +75,25 @@
             <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
-      <AnchorPane layoutX="452.0" layoutY="9.0" prefHeight="591.0" prefWidth="650.0" stylesheets="@inventory.css">
+      <AnchorPane layoutX="452.0" layoutY="9.0" prefHeight="591.0" prefWidth="650.0">
          <children>
-            <TableView fx:id="ShowallProduct_TableView" layoutX="27.0" layoutY="56.0" prefHeight="527.0" prefWidth="677.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
-               <columns>
-                  <TableColumn fx:id="Product_Table_col_id" prefWidth="47.0" text="ID:" />
-                  <TableColumn fx:id="product_Table_col_Productname" prefWidth="146.0" styleClass="column-header" text="Product Name:" />
-                  <TableColumn fx:id="Product_Table_col_genre" prefWidth="88.0" styleClass="column-header" text="Genre" />
-                  <TableColumn fx:id="Product_Table_col_devloper_artist_director" prefWidth="123.0" styleClass="column-header" text="Devloper" />
-                  <TableColumn fx:id="Product_Table_col_price" minWidth="0.0" prefWidth="86.0" styleClass="column-header" text="Price" />
-                  <TableColumn fx:id="Product_Table_col_discount" minWidth="9.0" prefWidth="98.0" styleClass="column-header" text="Discount" />
-                  <TableColumn fx:id="Product_Table_col_NumOfItemStocked" minWidth="0.0" prefWidth="108.0" styleClass="column-header" text="Stocks" />
-               </columns>
-            </TableView>
             <Label fx:id="changetextAfterClikingRadioButton" alignment="CENTER" layoutX="4.0" layoutY="4.0" prefHeight="51.0" prefWidth="695.0" styleClass="card-d" stylesheets="@inventory.css" text="All Product Of Game:" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
+            <TableView fx:id="ShowallProduct_TableView" layoutX="8.0" layoutY="61.0" prefHeight="524.0" prefWidth="687.0">
+               <columns>
+                  <TableColumn fx:id="Product_Table_col_id" prefWidth="41.0" text="ID:" />
+                  <TableColumn fx:id="product_Table_col_Productname" prefWidth="159.0" text="Product Name:" />
+                  <TableColumn fx:id="Product_Table_col_devloper_artist_director" prefWidth="118.0" text="Devloper" />
+                  <TableColumn fx:id="Product_Table_col_publishedYEar" prefWidth="95.0" text="Published Year" />
+                  <TableColumn fx:id="Product_Table_col_genre" prefWidth="67.0" text="Genre" />
+                  <TableColumn fx:id="Product_Table_col_price" prefWidth="69.0" text="Price" />
+                  <TableColumn fx:id="Product_Table_col_discount1" prefWidth="62.0" text="Discount" />
+                  <TableColumn fx:id="Product_Table_col_NumOfItemStocked" prefWidth="71.0" text="Stocks" />
+               </columns>
+            </TableView>
          </children>
          <styleClass>
             <String fx:value="shadow" />
