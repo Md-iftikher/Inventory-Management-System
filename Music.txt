@@ -43,7 +43,7 @@ Discount: 2.5
 No of Items Stocked: 10
 Artist: Megadeath
 
-Name:Abbey Road
+Name: Abbey Road
 Product Id: 5
 Price: 25
 Genre: Rock

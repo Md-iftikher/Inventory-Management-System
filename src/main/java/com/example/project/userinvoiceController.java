@@ -87,6 +87,8 @@ public class userinvoiceController {
 
         @FXML
         private Label quantityTextField;
+        @FXML
+        private Button generateInvoiceButton;
 
         @FXML
         private Invoice currentInvoice = new Invoice();
@@ -255,7 +257,6 @@ public class userinvoiceController {
                                                         }
                                                 }
 
-                                                // Create an instance of the appropriate product type based on selectedCategory
                                                 if (selectedCategory.equals("Game")) {
                                                         product = new Game(productName,productId, price, genre, yearOfPublish, discount, stocks, developerArtistDirector);
                                                         producttableview=new Game(product.getName(),product.getProductId(),product.getPrice(),product.getGenre(),product.getYearPublished(),product.getDiscount(),product.getNumberOfItemsStocked(),product.getDeveloper());
@@ -285,14 +286,18 @@ public class userinvoiceController {
                                 }
                         }
                         br.close();
-                        System.out.println(currentInvoice.calculatePriceWithoutDiscount());
-                        TotalPriceOFOrder.setText(" " + currentInvoice.calculatePriceWithoutDiscount());
-                        System.out.println(currentInvoice.getLocalDateTime());
-                        System.out.println(currentInvoice.getInvoice());
+                        addproductshowlistdata();
                 } catch (Exception e) {
                         System.out.println(e);
                         e.printStackTrace();
                 }
+        }
+
+        @FXML
+        public void printInvoice(){
+                System.out.println(currentInvoice.calculatePriceWithoutDiscount());
+                TotalPriceOFOrder.setText(" " + currentInvoice.calculatePriceWithoutDiscount());
+                System.out.println(currentInvoice.getInvoice());
         }
 
 
