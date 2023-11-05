@@ -323,6 +323,8 @@ public class AdminDashboardController {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
                     Parent root = fxmlLoader.load();
                     Scene scene = new Scene(root, 600, 400);
+                    String css = this.getClass().getResource("adminDashboardDesign.css").toExternalForm();
+                    scene.getStylesheets().add(css);
                     Stage currentStage = (Stage) Admin_dash_Order_back_user_Sceren_for_order.getScene().getWindow();
                     currentStage.setScene(scene);
                     currentStage.show();

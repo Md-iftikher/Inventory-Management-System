@@ -19,6 +19,12 @@ public class Invoice {
 		musicCount = 0;
 		movieCount = 0;
 	}
+	public void resetInvoice() {
+		items.clear();
+		gameCount = 0;
+		musicCount = 0;
+		movieCount = 0;
+	}
 
 	public String getLocalDateTime() {
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -41,18 +47,28 @@ public class Invoice {
 	}
 
 	public void removeProduct(Product product) {
-		items.remove(product);
-		StockableProduct sp = (StockableProduct) product;
-		sp.addStock(1);
+		for (Product item : items) {
+			if ((item.getProductId() == product.getProductId()) && (item.getName()==product.getName())) {
+				items.remove(item);
+				productCounts(item);
+				break;
+			}
+			else{
+				System.out.println("product did not removed");
+			}
+		}
+	}
 
-		if (product instanceof Game) {
+	private void productCounts(Product removedProduct) {
+		if (removedProduct instanceof Game) {
 			gameCount--;
-		} else if (product instanceof Music) {
+		} else if (removedProduct instanceof Music) {
 			musicCount--;
-		} else if (product instanceof Movie) {
+		} else if (removedProduct instanceof Movie) {
 			movieCount--;
 		}
 	}
+
 
 	public double calculatePriceWithoutDiscount() {
 		double totalPrice = 0.0;
@@ -61,6 +77,9 @@ public class Invoice {
 		}
 		return totalPrice;
 	}
+
+
+
 
 	public boolean isFullHouseDiscountAvailable() {
 		return gameCount >= 2 && musicCount >= 2 && movieCount >= 2;

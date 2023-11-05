@@ -58,7 +58,7 @@ Price: 12
 Genre: Drama
 Year of Publish: 1997
 Discount: 5.4
-No of Items Stocked: 123
+No of Items Stocked: 120
 Director: Gus Van Sant
 
 Name: Life Is Beautiful
@@ -67,7 +67,7 @@ Price: 20
 Genre: Comedy-Drama
 Year of Publish: 1997
 Discount: 2.6
-No of Items Stocked: 126
+No of Items Stocked: 123
 Director: Roberto Benigni
 
 Name: What's Eating Gilbert Grape

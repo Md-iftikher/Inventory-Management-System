@@ -14,17 +14,28 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import java.io.IOException;
+
 import javafx.stage.Stage;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-public class userinvoiceController {
-        @FXML
-        private Label DiscountAfterOfer;
+import static org.apache.pdfbox.pdmodel.font.PDType1Font.*;
 
+public class userinvoiceController {
         @FXML
         private TextField PaymentAmount;
 
@@ -68,7 +79,7 @@ public class userinvoiceController {
         private TableColumn<StockableProduct, String> invoice_Tableview_Product_Genre;
 
         @FXML
-        private TableColumn<StockableProduct, Integer> invoice_Tableview_Product_Quantity;
+        private TableColumn<StockableProduct, Double> invoice_Tableview_Product_Discount;
 
         @FXML
         private TableColumn<StockableProduct, String> invoice_Tableview_Product_Type;
@@ -89,10 +100,13 @@ public class userinvoiceController {
         private Label quantityTextField;
         @FXML
         private Button generateInvoiceButton;
+        @FXML
+        private Label priceAfterDiscount;
+        @FXML
+        private Label ProductNotFoundError;
 
         @FXML
         private Invoice currentInvoice = new Invoice();
-
         String[] producttypelist = {"Movie", "Game", "Music"};
 
         @FXML
@@ -110,7 +124,7 @@ public class userinvoiceController {
         @FXML
         private SpinnerValueFactory<Integer>spiner;
         public void OrderSpiner(){
-                spiner=new SpinnerValueFactory.IntegerSpinnerValueFactory(0,500,0);
+                spiner=new SpinnerValueFactory.IntegerSpinnerValueFactory(0,1,0);
                 productQuantity.setValueFactory(spiner);
         }
         public void ordershowspinervalue(){
@@ -123,21 +137,13 @@ public class userinvoiceController {
         @FXML
         public void addproductshowlistdata() {
 
-                invoice_Tableview_Product_Quantity.setCellValueFactory(cellData -> {
-                        int quantity = productQuantity.getValue() != null ? productQuantity.getValue() : 0;
-                        TableCell<StockableProduct, Integer> cell = new TableCell<StockableProduct, Integer>() {
-                                @Override
-                                protected void updateItem(Integer item, boolean empty) {
-                                        super.updateItem(item, empty);
-                                        if (!empty) {
-                                                setText(String.valueOf(quantity));
-                                        } else {
-                                                setText(null);
-                                        }
-                                }
-                        };
-
-                        return new SimpleObjectProperty<>(quantity);
+                invoice_Tableview_Product_Discount.setCellValueFactory(cellData -> {
+                        if (cellData.getValue() instanceof StockableProduct) {
+                                double discount = ((StockableProduct) cellData.getValue()).getDiscount();
+                                return new SimpleDoubleProperty(discount).asObject();
+                        } else {
+                                return new SimpleDoubleProperty(0.0).asObject();
+                        }
                 });
 
                 invoice_Tableview_Product_Type.setCellValueFactory(cellData -> {
@@ -152,7 +158,22 @@ public class userinvoiceController {
                                 return new SimpleStringProperty("");
                         }
                 });
-                invoice_Tableview_Product_Genre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+                invoice_Tableview_Product_Genre.setCellValueFactory(cellData->{
+                        String Genre;
+                        if(cellData.getValue() instanceof Game){
+                                Genre=((Game) cellData.getValue()).getGenre();
+                        }
+                        else if(cellData.getValue() instanceof Music){
+                                Genre=((Music) cellData.getValue()).getGenre();
+                        }
+                        else if(cellData.getValue() instanceof Movie){
+                                Genre=((Movie) cellData.getValue()).getGenre();
+                        }
+                        else {
+                                Genre="";
+                        }
+                        return new SimpleStringProperty(Genre);
+                });
                 invoice_Tableview_Product_devloper_artist_director.setCellValueFactory(cellData -> {
                         String developerArtistDirector;
                         if (cellData.getValue() instanceof Game) {
@@ -275,29 +296,128 @@ public class userinvoiceController {
                                                 if(product!=null){
                                                         try {
                                                                 currentInvoice.addProduct(product);
-                                                                System.out.println("product added in invoice");
                                                         }
                                                         catch (Exception e){
                                                                 System.out.println(e);
                                                         }
                                                 }
-                                                break; // Exit the loop since the product has been found
+                                                break;
                                         }
                                 }
                         }
                         br.close();
-                        addproductshowlistdata();
+                        if(!found){
+                                ProductNotFoundError.setText("Product Not Found.Please Give Correct Information.");
+                        }
+                        else {
+                                addproductshowlistdata();
+                                TotalPriceOFOrder.setText("$ " + currentInvoice.calculatePriceWithoutDiscount());
+                                priceAfterDiscount.setText("$ "+currentInvoice.calculateDiscountedPrice());
+                                ProductNotFoundError.setText("");
+                                updateAfteraddingStockInFile(fileName,productName,-1); //stock is reduing by 1.
+                        }
                 } catch (Exception e) {
                         System.out.println(e);
                         e.printStackTrace();
                 }
         }
+        public void reset(){
+
+                Product_name.clear();
+                product_id.clear();
+                TotalPriceOFOrder.setText("$");
+                priceAfterDiscount.setText("$");
+                PaymentAmount.clear();
+                invoiceProducts.clear();
+                currentInvoice.resetInvoice();
+
+        }
+        @FXML
+        private void removeProductFromList() {
+                StockableProduct selectedProduct = invoiceTableView.getSelectionModel().getSelectedItem();
+                String Product_name=null; String fileName=null;
+                if (selectedProduct != null) {
+                        Product remoedproduct=null;
+                        invoiceTableView.getItems().remove(selectedProduct);
+                        invoiceProducts.remove(selectedProduct);
+                        if (selectedProduct instanceof Game) {
+                                remoedproduct=new Game(selectedProduct.getName(),selectedProduct.getProductId(),selectedProduct.getPrice(),selectedProduct.getGenre(),selectedProduct.getYearPublished(),selectedProduct.getDiscount(),selectedProduct.getNumberOfItemsStocked(),selectedProduct.getDeveloper());
+                                 Product_name = remoedproduct.getName();
+                                 fileName = "Game.txt";
+                        } else if (selectedProduct instanceof Music) {
+                                 remoedproduct=new Music(selectedProduct.getName(),selectedProduct.getProductId(),selectedProduct.getPrice(),selectedProduct.getGenre(),selectedProduct.getYearPublished(),selectedProduct.getDiscount(),selectedProduct.getNumberOfItemsStocked(),selectedProduct.getArtistName());
+                                Product_name = remoedproduct.getName();
+                                fileName = "Music.txt";
+                        } else if (selectedProduct instanceof Movie) {
+                                remoedproduct=new Movie(selectedProduct.getName(),selectedProduct.getProductId(),selectedProduct.getPrice(),selectedProduct.getGenre(),selectedProduct.getYearPublished(),selectedProduct.getDiscount(),selectedProduct.getNumberOfItemsStocked(),selectedProduct.getDirector());
+                                Product_name = remoedproduct.getName();
+                                fileName = "Movie.txt";
+                        }
+                        if(remoedproduct!=null) {
+                                currentInvoice.removeProduct(remoedproduct);
+                                if(Product_name!=null && fileName!=null) {
+                                        updateAfteraddingStockInFile(fileName, Product_name, 1);
+                                }
+                                else{
+                                        System.err.println("file name is null.");
+                                }
+                                TotalPriceOFOrder.setText("$ " + currentInvoice.calculatePriceWithoutDiscount());
+                                priceAfterDiscount.setText("$ "+currentInvoice.calculateDiscountedPrice());
+                        }
+                        else{
+                                System.out.println("remove product is null");
+                        }
+                } else {
+                       System.out.println("No product selected for removal.");
+                }
+        }
+        @FXML
+        public void updateAfteraddingStockInFile(String fileName, String productName,int num) {
+                 int  addOrRemove=num;
+                ArrayList<String> lines = new ArrayList();
+                try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+                        String line;
+                        String currentProductName = null;
+
+                        while ((line = br.readLine()) != null) {
+                                if (line.startsWith("Name: ")) {
+                                        currentProductName = line.substring("Name: ".length());
+                                }
+                                if (line.startsWith("No of Items Stocked: ") && currentProductName != null && currentProductName.equals(productName)) {
+                                        int currentStock = Integer.parseInt(line.substring("No of Items Stocked: ".length()));
+
+                                        if (currentStock > 0) {
+                                                currentStock=currentStock+addOrRemove;
+                                        }
+
+                                        line = "No of Items Stocked: " + currentStock;
+                                        currentProductName = null;
+                                }
+                                lines.add(line);
+                        }
+                } catch (IOException e) {
+                        System.err.println("Error updating stock count in the file: " + e.getMessage());
+                        return;
+                }
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
+                        for (String updatedLine : lines) {
+                                bw.write(updatedLine);
+                                bw.newLine();
+                        }
+                        System.out.println("Stock count updated successfully.");
+                } catch (IOException e) {
+                        System.err.println("Error writing to the file: " + e.getMessage());
+                }
+        }
+
 
         @FXML
         public void printInvoice(){
                 System.out.println(currentInvoice.calculatePriceWithoutDiscount());
-                TotalPriceOFOrder.setText(" " + currentInvoice.calculatePriceWithoutDiscount());
+                System.out.println(currentInvoice.calculateDiscountedPrice());
                 System.out.println(currentInvoice.getInvoice());
+                saveTotalsToFile();
+                generateInvoiceAsPDF();
         }
 
 
@@ -322,4 +442,123 @@ public class userinvoiceController {
                         e.printStackTrace();
                 }
         }
+        @FXML
+        private TotalTracker totalTracker = new TotalTracker();
+        @FXML
+        public void saveTotalsToFile() {
+                totalTracker.addToTotalIncome(currentInvoice.calculateDiscountedPrice());
+                totalTracker.addToTotalProductsSold(invoiceProducts.size());
+                ArrayList<String> lines = new ArrayList<>();
+
+                try (BufferedReader reader = new BufferedReader(new FileReader("totals.txt"))) {
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                                lines.add(line);
+                        }
+                } catch (IOException e) {
+                        System.out.println(e);
+                }
+
+                Date currentDate = new Date();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String formattedDate = dateFormat.format(currentDate);
+
+                int dateLineIndex = -1;
+                for (int i = 0; i < lines.size(); i++) {
+                        if (lines.get(i).startsWith("Date: " + formattedDate)) {
+                                dateLineIndex = i;
+                                break;
+                        }
+                }
+
+                if (dateLineIndex != -1) {
+                        if (dateLineIndex + 2 < lines.size()) {
+                                lines.set(dateLineIndex + 1, "Total Income: " + totalTracker.getTotalIncome());
+                                lines.set(dateLineIndex + 2, "Total Products Sold: " + totalTracker.getTotalProductsSold());
+                        } else {
+                                System.err.println("Invalid file format - Missing data lines.");
+                        }
+                } else {
+                        lines.add("Date: " + formattedDate);
+                        lines.add("Total Income: " + totalTracker.getTotalIncome());
+                        lines.add("Total Products Sold: " + totalTracker.getTotalProductsSold());
+                }
+
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("totals.txt"))) {
+                        for (String line : lines) {
+                                writer.write(line);
+                                writer.newLine();
+                        }
+                        System.out.println(" saved to file.");
+                } catch (IOException e) {
+                        System.out.println(e);
+                }
+        }
+        @FXML
+        public void generateInvoiceAsPDF() {
+                // Create a new PDF document
+                PDDocument document = new PDDocument();
+                PDPage page = new PDPage(PDRectangle.A4);
+                document.addPage(page);
+
+                try {
+                        // Create a content stream for the PDF page
+                        PDPageContentStream contentStream = new PDPageContentStream(document, page);
+
+                        // Set the font and text position
+                        //contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+                        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 14);
+
+                        float margin = 50;
+                        float yStart = page.getMediaBox().getHeight() - margin;
+                        float yPosition = yStart;
+                        int linesPerPage = 25;
+                        int linesWritten = 0;
+
+                        // Add invoice details
+                        contentStream.beginText();
+                        contentStream.newLineAtOffset(margin, yPosition);
+                        contentStream.showText("Invoice");
+                        contentStream.newLineAtOffset(0, -20);
+                        contentStream.showText("Date: " + LocalDate.now());
+                        contentStream.newLineAtOffset(0, -20);
+                        contentStream.showText("Total Price Without Discount: " + currentInvoice.calculatePriceWithoutDiscount());
+                        contentStream.newLineAtOffset(0, -20);
+                        contentStream.showText("Discounted Price: " + currentInvoice.calculateDiscountedPrice());
+                        contentStream.endText();
+
+                        // Add product details
+                        for (StockableProduct product : invoiceProducts) {
+                                yPosition -= 20;
+                                contentStream.beginText();
+                                contentStream.newLineAtOffset(margin, yPosition);
+                                contentStream.showText("Name: " + product.getName() + ", Price: " + product.getPrice());
+                                contentStream.endText();
+
+                                linesWritten++;
+                                if (linesWritten >= linesPerPage) {
+                                        contentStream.close();
+                                        PDPage newPage = new PDPage(PDRectangle.A4);
+                                        document.addPage(newPage);
+                                        contentStream = new PDPageContentStream(document, newPage);
+                                        linesWritten = 0;
+                                        yPosition = yStart;
+                                }
+                        }
+
+                        contentStream.close();
+
+                        // Save the PDF to a file
+                        document.save("invoice.pdf");
+                        document.close();
+
+                        System.out.println("Invoice saved as PDF.");
+                } catch (IOException e) {
+                        System.err.println("Error creating PDF: " + e.getMessage());
+                }
+        }
+
+
+
+
 }

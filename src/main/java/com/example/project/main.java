@@ -13,13 +13,16 @@ public class main extends Application {
     public void start(Stage stage) throws IOException {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Login.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+            String css = this.getClass().getResource("adminDashboardDesign.css").toExternalForm();
+            scene.getStylesheets().add(css);
             stage.setTitle("application");
             stage.setScene(scene);
             stage.show();
         }
         catch (Exception e){
             System.out.println(e);
+            e.printStackTrace();
         }
     }
 
