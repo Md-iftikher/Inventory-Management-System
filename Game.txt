@@ -4,7 +4,7 @@ Price: 29
 Genre: Survival
 Year of Publish: 2018
 Discount: 3.7
-No of Items Stocked: 997
+No of Items Stocked: 996
 Developer: RockStar
 
 Name: God of War
@@ -13,7 +13,7 @@ Price: 12
 Genre: Action
 Year of Publish: 2018
 Discount: 5.6
-No of Items Stocked: 564
+No of Items Stocked: 563
 Developer: Javaground
 
 Name: Grand Theft Auto V
@@ -24,4 +24,13 @@ Year of Publish: 2017
 Discount: 2.3
 No of Items Stocked: 100
 Developer: RockStar
+
+Name: clash of clan
+Product Id: 457
+Price: 10.0
+Genre: action
+Year of Publish: 2026
+Discount: 15.0
+No of Items Stocked: 8
+Developer: supercell
 

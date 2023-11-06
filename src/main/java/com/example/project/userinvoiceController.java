@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -36,6 +37,62 @@ import java.util.Optional;
 import static org.apache.pdfbox.pdmodel.font.PDType1Font.*;
 
 public class userinvoiceController {
+        @FXML
+        private AnchorPane userDashboardView2;
+        @FXML
+        private AnchorPane userDashboardView1;
+        @FXML
+        private AnchorPane invoiceviewinthescreen;
+        @FXML
+        private Button moveToDashHome_button;
+
+        @FXML
+        private Label invoicediscountPrice;
+
+        @FXML
+        private Label invoiceToatalPrice;
+
+        @FXML
+        private Label priceOfproduct1;
+
+        @FXML
+        private Label priceOfproduct2;
+
+        @FXML
+        private Label priceOfproduct3;
+
+        @FXML
+        private Label priceOfproduct4;
+
+        @FXML
+        private Label priceOfproduct5;
+
+        @FXML
+        private Label priceOfproduct6;
+
+        @FXML
+        private Label priceOfproduct7;
+
+        @FXML
+        private Label produc1;
+
+        @FXML
+        private Label produc2;
+
+        @FXML
+        private Label produc3;
+
+        @FXML
+        private Label produc4;
+
+        @FXML
+        private Label produc5;
+
+        @FXML
+        private Label produc6;
+
+        @FXML
+        private Label produc7;
         @FXML
         private TextField PaymentAmount;
 
@@ -412,12 +469,30 @@ public class userinvoiceController {
 
 
         @FXML
-        public void printInvoice(){
+        public void printInvoice() throws NoSuchFieldException, IllegalAccessException {
                 System.out.println(currentInvoice.calculatePriceWithoutDiscount());
                 System.out.println(currentInvoice.calculateDiscountedPrice());
                 System.out.println(currentInvoice.getInvoice());
                 saveTotalsToFile();
-                generateInvoiceAsPDF();
+                ArrayList<Product> itemsList = currentInvoice.getItems();
+                int size = itemsList.size();
+
+                for (int i = 0; i < size; i++) {
+                        Product product = itemsList.get(i);
+                        Label nameLabel = (Label) getClass().getDeclaredField("produc" + (i + 1)).get(this);
+                        Label priceLabel = (Label) getClass().getDeclaredField("priceOfproduct" + (i + 1)).get(this);
+
+                        if (nameLabel != null && priceLabel != null) {
+                                nameLabel.setText(product.getName());
+                                priceLabel.setText("$ "+product.getPrice());
+                                invoiceToatalPrice.setText("Total Price: $ "+currentInvoice.calculatePriceWithoutDiscount());
+                                invoicediscountPrice.setText("Discounted Price: $ "+currentInvoice.calculateDiscountedPrice());
+
+                        }
+                }
+
+
+
         }
 
 
@@ -494,68 +569,24 @@ public class userinvoiceController {
                         System.out.println(e);
                 }
         }
-        @FXML
-        public void generateInvoiceAsPDF() {
-                // Create a new PDF document
-                PDDocument document = new PDDocument();
-                PDPage page = new PDPage(PDRectangle.A4);
-                document.addPage(page);
+        public void SwitchForm(ActionEvent event) throws NoSuchFieldException, IllegalAccessException {   //for swinting scene .
+                if (event.getSource() == moveToDashHome_button) {
+                        userDashboardView2.setVisible(true);
+                        userDashboardView1.setVisible(true);
+                        invoiceviewinthescreen.setVisible(false);
+                        reset();
 
-                try {
-                        // Create a content stream for the PDF page
-                        PDPageContentStream contentStream = new PDPageContentStream(document, page);
-
-                        // Set the font and text position
-                        //contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-                        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 14);
-
-                        float margin = 50;
-                        float yStart = page.getMediaBox().getHeight() - margin;
-                        float yPosition = yStart;
-                        int linesPerPage = 25;
-                        int linesWritten = 0;
-
-                        // Add invoice details
-                        contentStream.beginText();
-                        contentStream.newLineAtOffset(margin, yPosition);
-                        contentStream.showText("Invoice");
-                        contentStream.newLineAtOffset(0, -20);
-                        contentStream.showText("Date: " + LocalDate.now());
-                        contentStream.newLineAtOffset(0, -20);
-                        contentStream.showText("Total Price Without Discount: " + currentInvoice.calculatePriceWithoutDiscount());
-                        contentStream.newLineAtOffset(0, -20);
-                        contentStream.showText("Discounted Price: " + currentInvoice.calculateDiscountedPrice());
-                        contentStream.endText();
-
-                        // Add product details
-                        for (StockableProduct product : invoiceProducts) {
-                                yPosition -= 20;
-                                contentStream.beginText();
-                                contentStream.newLineAtOffset(margin, yPosition);
-                                contentStream.showText("Name: " + product.getName() + ", Price: " + product.getPrice());
-                                contentStream.endText();
-
-                                linesWritten++;
-                                if (linesWritten >= linesPerPage) {
-                                        contentStream.close();
-                                        PDPage newPage = new PDPage(PDRectangle.A4);
-                                        document.addPage(newPage);
-                                        contentStream = new PDPageContentStream(document, newPage);
-                                        linesWritten = 0;
-                                        yPosition = yStart;
-                                }
-                        }
-
-                        contentStream.close();
-
-                        // Save the PDF to a file
-                        document.save("invoice.pdf");
-                        document.close();
-
-                        System.out.println("Invoice saved as PDF.");
-                } catch (IOException e) {
-                        System.err.println("Error creating PDF: " + e.getMessage());
+                } else if (event.getSource() == PaymentButton) {
+                        invoiceviewinthescreen.setVisible(true);
+                        userDashboardView2.setVisible(false);
+                        userDashboardView1.setVisible(false);
+                        printInvoice();
                 }
+        }
+        @FXML
+        public void generateInvoice() {
+
+
         }
 
 

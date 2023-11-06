@@ -13,6 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.userinvoiceController">
@@ -52,13 +53,22 @@
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Label>
+            <Button fx:id="moveToDashHome_button" layoutX="13.0" layoutY="218.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="40.0" prefWidth="180.0" styleClass="nav_btn" stylesheets="@adminDashboardDesign.css" text="Home" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@home-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
          <styleClass>
             <String fx:value="nav-form" />
             <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
-      <AnchorPane layoutX="768.0" layoutY="8.0" prefHeight="584.0" prefWidth="324.0" stylesheets="@adminDashboardDesign.css">
+      <AnchorPane fx:id="userDashboardView2" layoutX="768.0" layoutY="8.0" prefHeight="584.0" prefWidth="324.0" stylesheets="@adminDashboardDesign.css" visible="false">
          <styleClass>
             <String fx:value="shadow" />
             <String fx:value="white_Bg" />
@@ -111,7 +121,7 @@
                   <Font name="Tahoma Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="PaymentButton" layoutX="182.0" layoutY="486.0" mnemonicParsing="false" onAction="#printInvoice" prefHeight="41.0" prefWidth="105.0" styleClass="update_button" stylesheets="@adminDashboardDesign.css" text="Pay">
+            <Button fx:id="PaymentButton" layoutX="182.0" layoutY="486.0" mnemonicParsing="false" onAction="#SwitchForm" prefHeight="41.0" prefWidth="105.0" styleClass="update_button" stylesheets="@adminDashboardDesign.css" text="Pay">
                <font>
                   <Font name="Tahoma Bold" size="12.0" />
                </font>
@@ -153,7 +163,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="222.0" layoutY="8.0" prefHeight="584.0" prefWidth="534.0" stylesheets="@adminDashboardDesign.css">
+      <AnchorPane fx:id="userDashboardView1" layoutX="222.0" layoutY="8.0" prefHeight="584.0" prefWidth="534.0" stylesheets="@adminDashboardDesign.css" visible="false">
          <children>
             <TableView fx:id="invoiceTableView" layoutX="7.0" layoutY="60.0" prefHeight="519.0" prefWidth="519.0" styleClass="shadow" stylesheets="@adminDashboardDesign.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="60.0">
               <columns>
@@ -175,6 +185,188 @@
             <String fx:value="white_Bg" />
             <String fx:value="shadow" />
          </styleClass>
+      </AnchorPane>
+      <AnchorPane fx:id="invoiceviewinthescreen" layoutX="406.0" layoutY="15.0" prefHeight="571.0" prefWidth="478.0" stylesheets="@adminDashboardDesign.css">
+         <styleClass>
+            <String fx:value="white_Bg" />
+            <String fx:value="shadow" />
+         </styleClass>
+         <children>
+            <Rectangle fx:id="Rectangle1" arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="27.0" layoutX="8.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="469.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="27.0" layoutX="8.0" layoutY="205.0" stroke="BLACK" strokeType="INSIDE" width="469.0" />
+            <Label alignment="CENTER" layoutY="-2.0" prefHeight="67.0" prefWidth="482.0" style="-fx-background-color: #3186d0;" text="VNYL $ CD SHOP" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="82.0" prefHeight="57.0" prefWidth="202.0" text="INVOICE">
+               <font>
+                  <Font name="Arial Black" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="159.0" prefHeight="27.0" prefWidth="88.0" text="Invoice">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="307.0" layoutY="159.0" prefHeight="27.0" prefWidth="48.0" text="Date:">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="invoicedate" layoutX="363.0" layoutY="159.0" prefHeight="27.0" prefWidth="113.0" text="dd-mm-yy">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="produc3" layoutX="12.0" layoutY="299.0" prefHeight="27.0" prefWidth="227.0" text="Product name">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="376.0" layoutY="206.0" prefHeight="27.0" prefWidth="58.0" text="Price">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="produc1" layoutX="12.0" layoutY="236.0" prefHeight="27.0" prefWidth="227.0" text="Product name">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="produc2" layoutX="12.0" layoutY="267.0" prefHeight="27.0" prefWidth="227.0" text="Product name">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="59.0" layoutY="206.0" prefHeight="27.0" prefWidth="154.0" text="ITEM DESCRIPTION">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="produc4" layoutX="14.0" layoutY="331.0" prefHeight="27.0" prefWidth="227.0" text="Product name">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="produc5" layoutX="14.0" layoutY="362.0" prefHeight="27.0" prefWidth="227.0" text="Product name">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="produc6" layoutX="14.0" layoutY="390.0" prefHeight="27.0" prefWidth="227.0" text="Product name">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="produc7" layoutX="14.0" layoutY="420.0" prefHeight="27.0" prefWidth="227.0" text="Product name">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceOfproduct1" layoutX="370.0" layoutY="238.0" prefHeight="23.0" prefWidth="58.0" text="Price">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceOfproduct2" layoutX="368.0" layoutY="265.0" prefHeight="27.0" prefWidth="58.0" text="Price">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceOfproduct3" layoutX="367.0" layoutY="296.0" prefHeight="27.0" prefWidth="58.0" text="Price">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceOfproduct4" layoutX="368.0" layoutY="331.0" prefHeight="27.0" prefWidth="58.0" text="Price">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceOfproduct5" layoutX="368.0" layoutY="362.0" prefHeight="27.0" prefWidth="58.0" text="Price">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceOfproduct6" layoutX="368.0" layoutY="391.0" prefHeight="27.0" prefWidth="58.0" text="Price">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="invoiceToatalPrice" layoutX="252.0" layoutY="491.0" prefHeight="27.0" prefWidth="148.0" text="Total Price:">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="invoicediscountPrice" layoutX="213.0" layoutY="518.0" prefHeight="27.0" prefWidth="189.0" text="Discounted Price:">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceOfproduct7" layoutX="368.0" layoutY="419.0" prefHeight="27.0" prefWidth="58.0" text="Price">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Line endX="33.0" endY="120.0" layoutX="209.0" layoutY="359.0" startX="33.5" startY="-154.0" />
+            <Line endX="33.0" endY="120.0" layoutX="305.0" layoutY="361.0" startX="33.5" startY="-154.0" />
+            <Label layoutX="252.0" layoutY="206.0" prefHeight="27.0" prefWidth="82.0" text="QUANTITY">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="quantity1" alignment="CENTER" layoutX="252.0" layoutY="237.0" prefHeight="27.0" prefWidth="82.0" text="1">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="quantity2" alignment="CENTER" layoutX="252.0" layoutY="265.0" prefHeight="27.0" prefWidth="82.0" text="1">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="quantity3" alignment="CENTER" layoutX="251.0" layoutY="299.0" prefHeight="27.0" prefWidth="82.0" text="1">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="quantity4" alignment="CENTER" layoutX="252.0" layoutY="331.0" prefHeight="27.0" prefWidth="82.0" text="1">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="quantity5" alignment="CENTER" layoutX="251.0" layoutY="362.0" prefHeight="27.0" prefWidth="82.0" text="1">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="quantity6" alignment="CENTER" layoutX="251.0" layoutY="391.0" prefHeight="27.0" prefWidth="82.0" text="1">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="quantity7" alignment="CENTER" layoutX="252.0" layoutY="417.0" prefHeight="27.0" prefWidth="82.0" text="1">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="produc8" layoutX="12.0" layoutY="453.0" prefHeight="27.0" prefWidth="227.0" text="Product name">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="quantity8" alignment="CENTER" layoutX="252.0" layoutY="446.0" prefHeight="27.0" prefWidth="82.0" text="1">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceOfproduct71" layoutX="368.0" layoutY="453.0" prefHeight="27.0" prefWidth="58.0" text="Price">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+         </children>
       </AnchorPane>
    </children>
 </AnchorPane>

@@ -58,7 +58,7 @@ Price: 12
 Genre: Drama
 Year of Publish: 1997
 Discount: 5.4
-No of Items Stocked: 120
+No of Items Stocked: 118
 Director: Gus Van Sant
 
 Name: Life Is Beautiful

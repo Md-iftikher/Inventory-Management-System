@@ -31,7 +31,7 @@ Price: 23
 Genre: Indie
 Year of Publish: 2018
 Discount: 7.5
-No of Items Stocked: 496
+No of Items Stocked: 494
 Artist: Arctic Monkeys
 
 Name: Rust in Peace
@@ -40,7 +40,7 @@ Price: 33
 Genre: Metal
 Year of Publish: 1990
 Discount: 2.5
-No of Items Stocked: 9
+No of Items Stocked: 8
 Artist: Megadeath
 
 Name: Abbey Road

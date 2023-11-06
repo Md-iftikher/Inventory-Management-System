@@ -99,7 +99,9 @@ public class Invoice {
 
 		return priceWithoutFullHouseDiscount;
 	}
-
+	public ArrayList<Product> getItems() {
+		return items;
+	}
 
 	public String getInvoice() {
 		String str = getLocalDateTime() + "\n";
